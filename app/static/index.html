@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171c2f">
+  <title>知行 · Enterprise AI Agent</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="知行首页"><span class="brand-icon">知</span><span>知行 <small>ENTERPRISE AGENT</small></span></a>
+    <div class="workspace"><span class="workspace-dot"></span>企业工作空间 <span class="workspace-tag">MVP</span></div>
+    <div class="nav-label">工作台</div>
+    <div class="nav-active"><span>◈</span> 智能助手 <span class="nav-dot"></span></div>
+    <section class="knowledge"><div class="nav-label">知识库 <span id="doc-count">—</span></div><div id="documents"></div></section>
+    <section class="capabilities"><div class="nav-label">已连接的能力</div><div>✓ 文档检索 <span>BM25</span></div><div>✓ 订单查询 <span>只读</span></div></section>
+    <div class="sidebar-bottom"><span class="avatar">E</span><div>Enterprise AI Agent<small>从问题到证据，再到答案</small></div><span class="version">v0.1</span></div>
+  </aside>
+  <main>
+    <header class="topbar"><div>工作台 <span>/</span> <strong>智能助手</strong></div><div id="mode-badge" class="mode-badge">连接中</div></header>
+    <div class="main-content">
+      <div class="page-heading"><div><p class="eyebrow">KNOWLEDGE MEETS ACTION</p><h1>让知识与数据，一起回答。</h1><p class="subtitle">查制度、看订单，或把两者联系起来。每一次工具调用都有迹可循。</p></div><button id="clear" class="secondary">＋ 新对话</button></div>
+      <div class="overview"><div><span class="metric-icon violet">▤</span><span>企业知识库<small>3 份演示制度 · 原文可追溯</small></span></div><div><span class="metric-icon mint">▦</span><span>业务数据<small>6 笔虚构订单 · 2026-11-01 快照</small></span></div><div><span class="metric-icon amber">↗</span><span>工具协作<small>检索文档 + 安全查询</small></span></div></div>
+      <section class="conversation" aria-label="对话区">
+        <div class="conversation-heading"><span><i class="online-dot"></i> 企业助手</span><span>回答基于工具返回的证据</span></div>
+        <div id="messages" role="log" aria-live="polite" aria-relevant="additions">
+          <div id="welcome" class="welcome"><div class="assistant-mark">✦</div><h2>今天想了解什么？</h2><p>从一个具体问题开始，查看答案背后的文档与数据。</p><div class="examples"><button data-question="一线城市出差住宿报销标准是多少？"><span>01 / 查知识</span>一线城市的住宿报销标准？ <b>↗</b></button><button data-question="有哪些未付款订单？总金额是多少？"><span>02 / 查数据</span>哪些订单还没付款？ <b>↗</b></button><button data-question="列出逾期订单，并查找逾期处理制度。"><span>03 / 组合查询</span>查逾期订单及处理制度 <b>↗</b></button></div></div>
+        </div>
+        <div id="status" role="status" class="status"></div>
+        <form id="chat-form"><label class="sr-only" for="question">输入你的问题</label><div class="input-shell"><textarea id="question" rows="2" maxlength="2000" placeholder="例如：列出逾期订单，并查找对应的催收制度……" required></textarea><div class="input-bottom"><span>↵ 发送 · Shift + Enter 换行</span><button id="send" type="submit">发送问题 <span>↑</span></button></div></div><div class="input-note"><span id="mode-note">正在连接服务……</span><span>仅使用虚构演示数据</span></div></form>
+      </section>
+      <footer>Enterprise AI Agent <span>·</span> 可观察、可追溯的 AI 应用实战</footer>
+    </div>
+  </main>
+  <dialog id="document-dialog"><div class="dialog-header"><h2 id="document-title">文档原文</h2><button id="close-dialog" aria-label="关闭文档">×</button></div><pre id="document-content"></pre></dialog>
+</body>
+</html>

@@ -1,0 +1,8 @@
+[
+  {"order_id":"ORD-1001","customer":"星河科技","amount_cents":1280000,"status":"overdue","created_at":"2026-09-01","due_date":"2026-10-01"},
+  {"order_id":"ORD-1002","customer":"远山制造","amount_cents":865000,"status":"unpaid","created_at":"2026-10-15","due_date":"2026-11-15"},
+  {"order_id":"ORD-1003","customer":"星河科技","amount_cents":520000,"status":"paid","created_at":"2026-09-15","due_date":"2026-10-15"},
+  {"order_id":"ORD-1004","customer":"海风商贸","amount_cents":2300000,"status":"overdue","created_at":"2026-09-20","due_date":"2026-10-20"},
+  {"order_id":"ORD-1005","customer":"云帆教育","amount_cents":360000,"status":"paid","created_at":"2026-10-01","due_date":"2026-10-31"},
+  {"order_id":"ORD-1006","customer":"星河科技","amount_cents":990000,"status":"unpaid","created_at":"2026-10-20","due_date":"2026-11-20"}
+]
