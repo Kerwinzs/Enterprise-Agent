@@ -32,6 +32,10 @@ def test_health_frontend_and_no_config_secret(client):
     assert "script-src 'self'" in page.headers["content-security-policy"]
     assert client.get("/static/app.js").status_code == 200
     assert client.get("/static/style.css").status_code == 200
+    docs = client.get("/docs")
+    assert docs.status_code == 200
+    assert "https://cdn.jsdelivr.net" in docs.headers["content-security-policy"]
+    assert "unsafe-inline" not in page.headers["content-security-policy"]
 
 
 def test_documents_and_unregistered_path(client):

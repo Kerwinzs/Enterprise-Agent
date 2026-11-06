@@ -31,7 +31,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             app.state.active_requests = 0
             yield
 
-    app = FastAPI(title="Enterprise AI Agent", version="0.1.0", lifespan=lifespan)
+    app = FastAPI(title="Enterprise AI Agent", version="0.1.0", lifespan=lifespan, redoc_url=None)
 
     @app.middleware("http")
     async def headers(request: Request, call_next):
@@ -42,6 +42,14 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "default-src 'self'; script-src 'self'; style-src 'self'; "
             "img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'"
         )
+        # FastAPI's Swagger page uses a CDN and an inline initialization script.
+        if request.url.path in {"/docs", "/docs/oauth2-redirect"}:
+            response.headers["Content-Security-Policy"] = (
+                "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; "
+                "style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; "
+                "img-src 'self' data: https://fastapi.tiangolo.com; connect-src 'self'; "
+                "frame-ancestors 'none'; base-uri 'none'"
+            )
         if request.url.path.startswith("/api/"):
             response.headers["Cache-Control"] = "no-store"
         return response
