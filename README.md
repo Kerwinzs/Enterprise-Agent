@@ -1,6 +1,6 @@
 # 知行 · Enterprise AI Agent
 
-[![CI](https://github.com/Kerwinzs/enterprise-ai-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/Kerwinzs/enterprise-ai-agent/actions/workflows/ci.yml)
+[![CI](https://github.com/Kerwinzs/Enterprise-Agent/actions/workflows/ci.yml/badge.svg)](https://github.com/Kerwinzs/Enterprise-Agent/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-MVP-009688)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -65,7 +65,7 @@ flowchart LR
 ## 五分钟启动（macOS / Linux）
 
 ```bash
-git clone https://github.com/Kerwinzs/enterprise-ai-agent.git
+git clone https://github.com/Kerwinzs/Enterprise-Agent.git enterprise-ai-agent
 cd enterprise-ai-agent
 python3 -m venv .venv
 source .venv/bin/activate
