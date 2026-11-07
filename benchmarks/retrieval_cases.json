@@ -1,0 +1,679 @@
+{
+  "schema_version": 1,
+  "provenance": "人工编写的虚构中文企业制度及问题；不是公开基准或独立人工审核集。",
+  "protocol": "标签在首次向量模型评测前固定；dev 用于开发，test 仅用于最终报告；同一文档在不同 split 可有不同问法。",
+  "cases": [
+    {
+      "id": "test-01",
+      "split": "test",
+      "category": "exact",
+      "query": "一线城市出差住宿报销标准是多少？",
+      "relevant_ids": [
+        "reimbursement:1"
+      ],
+      "evidence_quotes": [
+        "一线城市每晚不超过 600 元"
+      ]
+    },
+    {
+      "id": "test-02",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "住酒店最多能报多少钱？",
+      "relevant_ids": [
+        "reimbursement:1"
+      ],
+      "evidence_quotes": [
+        "一线城市每晚不超过 600 元"
+      ]
+    },
+    {
+      "id": "test-03",
+      "split": "test",
+      "category": "exact",
+      "query": "订单逾期超过15天应该通知谁？",
+      "relevant_ids": [
+        "collections:1"
+      ],
+      "evidence_quotes": [
+        "逾期超过 15 天，应通知销售负责人"
+      ]
+    },
+    {
+      "id": "test-04",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "客户欠款拖了半个月，接下来该找谁处理？",
+      "relevant_ids": [
+        "collections:1"
+      ],
+      "evidence_quotes": [
+        "逾期超过 15 天，应通知销售负责人"
+      ]
+    },
+    {
+      "id": "test-05",
+      "split": "test",
+      "category": "exact",
+      "query": "API密钥应该保存在什么地方？",
+      "relevant_ids": [
+        "security:1"
+      ],
+      "evidence_quotes": [
+        "不得写入前端代码"
+      ]
+    },
+    {
+      "id": "test-06",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "接入模型那串凭证可以直接写到网页代码里吗？",
+      "relevant_ids": [
+        "security:1"
+      ],
+      "evidence_quotes": [
+        "不得写入前端代码"
+      ]
+    },
+    {
+      "id": "test-07",
+      "split": "test",
+      "category": "exact",
+      "query": "连续休年假5天需要提前多久申请？",
+      "relevant_ids": [
+        "leave:1"
+      ],
+      "evidence_quotes": [
+        "提前 10 个工作日"
+      ]
+    },
+    {
+      "id": "test-08",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "想连着休息一整周，最晚什么时候向领导打招呼？",
+      "relevant_ids": [
+        "leave:1"
+      ],
+      "evidence_quotes": [
+        "提前 10 个工作日"
+      ]
+    },
+    {
+      "id": "test-09",
+      "split": "test",
+      "category": "exact",
+      "query": "周末加班调休的有效期是多久？",
+      "relevant_ids": [
+        "overtime:1"
+      ],
+      "evidence_quotes": [
+        "90 个自然日"
+      ]
+    },
+    {
+      "id": "test-10",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "周六多干的工时换成休息，能留着用到什么时候？",
+      "relevant_ids": [
+        "overtime:1"
+      ],
+      "evidence_quotes": [
+        "90 个自然日"
+      ]
+    },
+    {
+      "id": "test-11",
+      "split": "test",
+      "category": "exact",
+      "query": "漏打卡后几个工作日内申请补卡？",
+      "relevant_ids": [
+        "attendance:1"
+      ],
+      "evidence_quotes": [
+        "3 个工作日"
+      ]
+    },
+    {
+      "id": "test-12",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "早上到了公司忘了刷考勤，过多久就不能补了？",
+      "relevant_ids": [
+        "attendance:1"
+      ],
+      "evidence_quotes": [
+        "3 个工作日"
+      ]
+    },
+    {
+      "id": "test-13",
+      "split": "test",
+      "category": "exact",
+      "query": "远程办公每周最多申请几天？",
+      "relevant_ids": [
+        "remote_work:1"
+      ],
+      "evidence_quotes": [
+        "每周最多申请 2 天"
+      ]
+    },
+    {
+      "id": "test-14",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "一周有几天可以不来办公室、在家干活？",
+      "relevant_ids": [
+        "remote_work:1"
+      ],
+      "evidence_quotes": [
+        "每周最多申请 2 天"
+      ]
+    },
+    {
+      "id": "test-15",
+      "split": "test",
+      "category": "exact",
+      "query": "入职首日由谁发放工作电脑和临时账号？",
+      "relevant_ids": [
+        "onboarding:1"
+      ],
+      "evidence_quotes": [
+        "IT 在首日发放工作电脑和临时账号"
+      ]
+    },
+    {
+      "id": "test-16",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "新同事第一天来，办公机器和登录用的账户找谁领？",
+      "relevant_ids": [
+        "onboarding:1"
+      ],
+      "evidence_quotes": [
+        "IT 在首日发放工作电脑和临时账号"
+      ]
+    },
+    {
+      "id": "test-17",
+      "split": "test",
+      "category": "exact",
+      "query": "试用期届满前几天启动转正考核？",
+      "relevant_ids": [
+        "probation:1"
+      ],
+      "evidence_quotes": [
+        "届满前 15 个自然日"
+      ]
+    },
+    {
+      "id": "test-18",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "成为正式员工之前，什么时候开始评估这段时间的表现？",
+      "relevant_ids": [
+        "probation:1"
+      ],
+      "evidence_quotes": [
+        "届满前 15 个自然日"
+      ]
+    },
+    {
+      "id": "test-19",
+      "split": "test",
+      "category": "exact",
+      "query": "离职员工的工作账号何时停用？",
+      "relevant_ids": [
+        "offboarding:1"
+      ],
+      "evidence_quotes": [
+        "最后工作日结束时停用工作账号"
+      ]
+    },
+    {
+      "id": "test-20",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "人走了之后，他的系统登录权限什么时候收回？",
+      "relevant_ids": [
+        "offboarding:1"
+      ],
+      "evidence_quotes": [
+        "最后工作日结束时停用工作账号"
+      ]
+    },
+    {
+      "id": "test-21",
+      "split": "test",
+      "category": "exact",
+      "query": "公司每月几号发放上月工资？",
+      "relevant_ids": [
+        "payroll:1"
+      ],
+      "evidence_quotes": [
+        "每月 15 日发放上月工资"
+      ]
+    },
+    {
+      "id": "test-22",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "每个月哪天钱会打到员工卡上？",
+      "relevant_ids": [
+        "payroll:1"
+      ],
+      "evidence_quotes": [
+        "每月 15 日发放上月工资"
+      ]
+    },
+    {
+      "id": "test-23",
+      "split": "test",
+      "category": "exact",
+      "query": "外部培训完成后报销比例与年度上限是多少？",
+      "relevant_ids": [
+        "training:1"
+      ],
+      "evidence_quotes": [
+        "审批费用的 80%"
+      ]
+    },
+    {
+      "id": "test-24",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "自己去外面上完课程拿到结业证，公司能承担多少学费？",
+      "relevant_ids": [
+        "training:1"
+      ],
+      "evidence_quotes": [
+        "审批费用的 80%"
+      ]
+    },
+    {
+      "id": "test-25",
+      "split": "test",
+      "category": "exact",
+      "query": "单笔采购6000元需要哪些人审批？",
+      "relevant_ids": [
+        "procurement:1"
+      ],
+      "evidence_quotes": [
+        "增加财务负责人审批"
+      ]
+    },
+    {
+      "id": "test-26",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "给团队买六千块的东西，除了部门领导还得谁签字？",
+      "relevant_ids": [
+        "procurement:1"
+      ],
+      "evidence_quotes": [
+        "增加财务负责人审批"
+      ]
+    },
+    {
+      "id": "test-27",
+      "split": "test",
+      "category": "exact",
+      "query": "因公借用工作电脑最长多少天？",
+      "relevant_ids": [
+        "asset_borrow:1"
+      ],
+      "evidence_quotes": [
+        "最长 30 个自然日"
+      ]
+    },
+    {
+      "id": "test-28",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "把单位的笔记本带出去办事，最多多久得还回来？",
+      "relevant_ids": [
+        "asset_borrow:1"
+      ],
+      "evidence_quotes": [
+        "最长 30 个自然日"
+      ]
+    },
+    {
+      "id": "test-29",
+      "split": "test",
+      "category": "exact",
+      "query": "VPN临时权限的最长有效期是多少？",
+      "relevant_ids": [
+        "vpn:1"
+      ],
+      "evidence_quotes": [
+        "有效期最长 7 天"
+      ]
+    },
+    {
+      "id": "test-30",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "在家连接单位内网的临时通道，开一次能用多久？",
+      "relevant_ids": [
+        "vpn:1"
+      ],
+      "evidence_quotes": [
+        "有效期最长 7 天"
+      ]
+    },
+    {
+      "id": "test-31",
+      "split": "test",
+      "category": "exact",
+      "query": "公司账号密码最少几位且包含哪些字符？",
+      "relevant_ids": [
+        "password:1"
+      ],
+      "evidence_quotes": [
+        "长度至少 12 位"
+      ]
+    },
+    {
+      "id": "test-32",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "登录口令最短要设多长，纯数字行不行？",
+      "relevant_ids": [
+        "password:1"
+      ],
+      "evidence_quotes": [
+        "长度至少 12 位"
+      ]
+    },
+    {
+      "id": "test-33",
+      "split": "test",
+      "category": "exact",
+      "query": "导出客户名单需要谁共同批准？",
+      "relevant_ids": [
+        "data_export:1"
+      ],
+      "evidence_quotes": [
+        "数据所属部门负责人及信息安全负责人共同批准"
+      ]
+    },
+    {
+      "id": "test-34",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "想把客户通讯录从系统里拉出来，要找哪两方签字？",
+      "relevant_ids": [
+        "data_export:1"
+      ],
+      "evidence_quotes": [
+        "数据所属部门负责人及信息安全负责人共同批准"
+      ]
+    },
+    {
+      "id": "test-35",
+      "split": "test",
+      "category": "exact",
+      "query": "客户开票申请需要核对哪些字段？",
+      "relevant_ids": [
+        "invoices:1"
+      ],
+      "evidence_quotes": [
+        "对应订单编号"
+      ]
+    },
+    {
+      "id": "test-36",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "给客户开票时，抬头和税号之外还要准备哪些信息？",
+      "relevant_ids": [
+        "invoices:1"
+      ],
+      "evidence_quotes": [
+        "对应订单编号"
+      ]
+    },
+    {
+      "id": "test-37",
+      "split": "test",
+      "category": "exact",
+      "query": "财务批准退款后几个工作日内到账？",
+      "relevant_ids": [
+        "refunds:1"
+      ],
+      "evidence_quotes": [
+        "7 个工作日"
+      ]
+    },
+    {
+      "id": "test-38",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "客户要求退钱，审批走完后要等多久才能退回去？",
+      "relevant_ids": [
+        "refunds:1"
+      ],
+      "evidence_quotes": [
+        "7 个工作日"
+      ]
+    },
+    {
+      "id": "test-39",
+      "split": "test",
+      "category": "exact",
+      "query": "客户业务招待的人均餐费上限是多少？",
+      "relevant_ids": [
+        "meal_entertainment:1"
+      ],
+      "evidence_quotes": [
+        "人均餐费上限为 200 元"
+      ]
+    },
+    {
+      "id": "test-40",
+      "split": "test",
+      "category": "paraphrase",
+      "query": "请客户吃饭，平均每个人能花多少钱？",
+      "relevant_ids": [
+        "meal_entertainment:1"
+      ],
+      "evidence_quotes": [
+        "人均餐费上限为 200 元"
+      ]
+    },
+    {
+      "id": "test-41",
+      "split": "test",
+      "category": "no_answer",
+      "query": "公司今年有多少名员工？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "test-42",
+      "split": "test",
+      "category": "no_answer",
+      "query": "年度体检费用能报销多少？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "test-43",
+      "split": "test",
+      "category": "no_answer",
+      "query": "生育假有多少天？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "test-44",
+      "split": "test",
+      "category": "no_answer",
+      "query": "公司明年会给员工涨薪多少？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "test-45",
+      "split": "test",
+      "category": "no_answer",
+      "query": "明天青岛会下雨吗？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "test-46",
+      "split": "test",
+      "category": "no_answer",
+      "query": "员工商业医疗保险的保额是多少？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "test-47",
+      "split": "test",
+      "category": "no_answer",
+      "query": "明年春节统一放假日期是哪几天？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "test-48",
+      "split": "test",
+      "category": "no_answer",
+      "query": "公司首席执行官的私人手机号码是多少？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "test-49",
+      "split": "test",
+      "category": "no_answer",
+      "query": "公司上一财年的营业收入是多少？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "test-50",
+      "split": "test",
+      "category": "no_answer",
+      "query": "公司为员工提供住房贷款的利率是多少？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "dev-01",
+      "split": "dev",
+      "category": "exact",
+      "query": "设备报修后IT首次响应时限是多少？",
+      "relevant_ids": [
+        "equipment_repair:1"
+      ],
+      "evidence_quotes": [
+        "4 个工作小时"
+      ]
+    },
+    {
+      "id": "dev-02",
+      "split": "dev",
+      "category": "exact",
+      "query": "会议室最多一次能约多久？",
+      "relevant_ids": [
+        "meeting_rooms:1"
+      ],
+      "evidence_quotes": [
+        "最长 2 小时"
+      ]
+    },
+    {
+      "id": "dev-03",
+      "split": "dev",
+      "category": "exact",
+      "query": "来访登记需要提前几个工作日？",
+      "relevant_ids": [
+        "visitors:1"
+      ],
+      "evidence_quotes": [
+        "提前 1 个工作日"
+      ]
+    },
+    {
+      "id": "dev-04",
+      "split": "dev",
+      "category": "exact",
+      "query": "合同盖章前需要完成哪些评审？",
+      "relevant_ids": [
+        "contracts:1"
+      ],
+      "evidence_quotes": [
+        "法务审核法律条款"
+      ]
+    },
+    {
+      "id": "dev-05",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "电脑坏了报上去，多快会有人先接单？",
+      "relevant_ids": [
+        "equipment_repair:1"
+      ],
+      "evidence_quotes": [
+        "4 个工作小时"
+      ]
+    },
+    {
+      "id": "dev-06",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "占着会议房间迟迟没人来，会不会被系统取消？",
+      "relevant_ids": [
+        "meeting_rooms:1"
+      ],
+      "evidence_quotes": [
+        "15 分钟"
+      ]
+    },
+    {
+      "id": "dev-07",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "外单位的人进办公区，可以自己逛吗？",
+      "relevant_ids": [
+        "visitors:1"
+      ],
+      "evidence_quotes": [
+        "员工全程陪同"
+      ]
+    },
+    {
+      "id": "dev-08",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "准备跟外面签协议，得先让哪几个部门把关？",
+      "relevant_ids": [
+        "contracts:1"
+      ],
+      "evidence_quotes": [
+        "财务审核付款条款"
+      ]
+    },
+    {
+      "id": "dev-09",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "公司有几家分公司？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "dev-10",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "员工健身补贴是多少钱？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    }
+  ]
+}
