@@ -701,3 +701,9 @@ dialog::backdrop {
     font-size:10px;
   }
 }
+
+/* Keep a growing knowledge collection from stretching the whole sidebar. */
+#documents {
+  max-height: 30vh;
+  overflow-y: auto;
+}

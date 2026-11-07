@@ -18,6 +18,9 @@ class Settings(BaseSettings):
     request_timeout_seconds: float = Field(default=60, gt=0, le=120)
     llm_timeout_seconds: float = Field(default=20, gt=0, le=60)
     data_dir: Path = Path(".local")
+    retrieval_mode: Literal["bm25", "dense", "hybrid"] = "bm25"
+    retrieval_candidate_k: int = Field(default=10, ge=1, le=100)
+    retrieval_rrf_k: int = Field(default=60, ge=1, le=1000)
 
     @field_validator("openai_base_url")
     @classmethod

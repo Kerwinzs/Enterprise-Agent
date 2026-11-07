@@ -9,6 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from app.agent import Agent, ToolBudgetExceeded
 from app.config import PACKAGE_DIR, Settings
 from app.database import OrderStore, initialize_database
+from app.embeddings import LocalChineseEncoder
 from app.llm import ChatCompletionClient, ProviderError
 from app.retrieval import DocumentIndex
 from app.schemas import ChatRequest, ChatResponse
@@ -22,7 +23,19 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     async def lifespan(app: FastAPI):
         db_path = settings.data_dir / "orders.db"
         initialize_database(db_path)
-        index = DocumentIndex(PACKAGE_DIR / "sample_data/docs")
+        encoder = (
+            LocalChineseEncoder(settings.data_dir / "models")
+            if settings.retrieval_mode != "bm25"
+            else None
+        )
+        index = DocumentIndex(
+            PACKAGE_DIR / "sample_data/docs",
+            mode=settings.retrieval_mode,
+            encoder=encoder,
+            cache_dir=settings.data_dir / "vectors",
+            candidate_k=settings.retrieval_candidate_k,
+            rrf_k=settings.retrieval_rrf_k,
+        )
         registry = ToolRegistry(index, OrderStore(db_path))
         async with httpx.AsyncClient(follow_redirects=False) as client:
             app.state.agent = Agent(settings, registry, ChatCompletionClient(settings, client))
@@ -31,7 +44,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             app.state.active_requests = 0
             yield
 
-    app = FastAPI(title="Enterprise AI Agent", version="0.1.0", lifespan=lifespan, redoc_url=None)
+    app = FastAPI(title="Enterprise AI Agent", version="0.2.0", lifespan=lifespan, redoc_url=None)
 
     @app.middleware("http")
     async def headers(request: Request, call_next):
@@ -66,6 +79,12 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "ready": settings.agent_mode == "demo"
             or bool(settings.openai_api_key.get_secret_value()),
             "documents": len(app.state.index.documents),
+            "chunks": len(app.state.index.chunks),
+            "retrieval_mode": app.state.index.mode,
+            "embedding_model": LocalChineseEncoder.MODEL if app.state.index.dense else None,
+            "vector_cache_hit": (
+                app.state.index.dense.cache_hit if app.state.index.dense else None
+            ),
             "tools": ["search_documents", "query_orders"],
         }
 

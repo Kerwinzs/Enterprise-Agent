@@ -68,7 +68,11 @@ class ToolRegistry:
         arguments = args.model_dump()
         if name == "search_documents":
             matches = self.index.search(**arguments)
-            return arguments, {"matches": [match.model_dump() for match in matches]}
+            return arguments, {
+                "retrieval_mode": self.index.mode,
+                "score_kind": {"bm25": "bm25", "dense": "cosine", "hybrid": "rrf"}[self.index.mode],
+                "matches": [match.model_dump() for match in matches],
+            }
         return arguments, self.orders.query(**arguments)
 
     def invoke(self, name: str, arguments: dict) -> tuple[dict, dict]:

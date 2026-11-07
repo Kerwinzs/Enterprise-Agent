@@ -40,7 +40,7 @@ def test_health_frontend_and_no_config_secret(client):
 
 def test_documents_and_unregistered_path(client):
     docs = client.get("/api/documents").json()
-    assert len(docs) == 3
+    assert len(docs) == client.get("/api/config").json()["documents"] == 33
     assert "600" in client.get("/api/documents/reimbursement").json()["content"]
     assert client.get("/api/documents/.env").status_code == 404
     assert client.get("/.env").status_code == 404

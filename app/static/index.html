@@ -16,14 +16,14 @@
     <div class="nav-label">工作台</div>
     <div class="nav-active"><span>◈</span> 智能助手 <span class="nav-dot"></span></div>
     <section class="knowledge"><div class="nav-label">知识库 <span id="doc-count">—</span></div><div id="documents"></div></section>
-    <section class="capabilities"><div class="nav-label">已连接的能力</div><div>✓ 文档检索 <span>BM25</span></div><div>✓ 订单查询 <span>只读</span></div></section>
-    <div class="sidebar-bottom"><span class="avatar">E</span><div>Enterprise AI Agent<small>从问题到证据，再到答案</small></div><span class="version">v0.1</span></div>
+    <section class="capabilities"><div class="nav-label">已连接的能力</div><div>✓ 文档检索 <span id="retrieval-label">关键词</span></div><div>✓ 订单查询 <span>只读</span></div></section>
+    <div class="sidebar-bottom"><span class="avatar">E</span><div>Enterprise AI Agent<small>从问题到证据，再到答案</small></div><span class="version">v0.2</span></div>
   </aside>
   <main>
     <header class="topbar"><div>工作台 <span>/</span> <strong>智能助手</strong></div><div id="mode-badge" class="mode-badge">连接中</div></header>
     <div class="main-content">
       <div class="page-heading"><div><p class="eyebrow">KNOWLEDGE MEETS ACTION</p><h1>让知识与数据，一起回答。</h1><p class="subtitle">查制度、看订单，或把两者联系起来。每一次工具调用都有迹可循。</p></div><button id="clear" class="secondary">＋ 新对话</button></div>
-      <div class="overview"><div><span class="metric-icon violet">▤</span><span>企业知识库<small>3 份演示制度 · 原文可追溯</small></span></div><div><span class="metric-icon mint">▦</span><span>业务数据<small>6 笔虚构订单 · 2026-11-01 快照</small></span></div><div><span class="metric-icon amber">↗</span><span>工具协作<small>检索文档 + 安全查询</small></span></div></div>
+      <div class="overview"><div><span class="metric-icon violet">▤</span><span>企业知识库<small id="knowledge-summary">加载制度文档……</small></span></div><div><span class="metric-icon mint">▦</span><span>业务数据<small>6 笔虚构订单 · 2026-11-01 快照</small></span></div><div><span class="metric-icon amber">↗</span><span>工具协作<small>检索文档 + 安全查询</small></span></div></div>
       <section class="conversation" aria-label="对话区">
         <div class="conversation-heading"><span><i class="online-dot"></i> 企业助手</span><span>回答基于工具返回的证据</span></div>
         <div id="messages" role="log" aria-live="polite" aria-relevant="additions">

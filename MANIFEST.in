@@ -1,3 +1,7 @@
 include .env.example requirements.txt requirements.lock
 recursive-include tests *.py
 recursive-include docs *.md *.jpg
+include requirements-retrieval.lock
+recursive-include scripts *.py
+recursive-include benchmarks *.json *.md
+recursive-include docs *.json

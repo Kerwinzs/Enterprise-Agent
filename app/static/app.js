@@ -130,6 +130,8 @@ async function initialize() {
       ? "当前为规则演示，工具真实执行；接入 API 后启用大模型决策。"
       : config.ready ? "大模型已配置 · 工具按需调用 · 回答请结合原文核验。" : "尚未配置服务端 API 密钥。";
     $("#doc-count").textContent = docs.length;
+    $("#knowledge-summary").textContent = `${docs.length} 份演示制度 · 原文可追溯`;
+    $("#retrieval-label").textContent = {bm25: "关键词", dense: "语义", hybrid: "混合"}[config.retrieval_mode] || "关键词";
     for (const doc of docs) {
       const button = element("button", "", `▤  ${doc.title.replace("（演示）", "")}`);
       button.addEventListener("click", () => showDocument(doc.id));

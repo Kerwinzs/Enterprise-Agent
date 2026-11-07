@@ -1,0 +1,22 @@
+# Optional local retrieval stack; exact versions validated on Python 3.12.
+# For Python 3.11 use: python -m pip install -e ".[retrieval]"
+-r requirements.lock
+charset-normalizer==3.5.2
+fastembed==0.9.1
+filelock==4.2.9
+flatbuffers==25.12.19
+fsspec==2026.9.0
+hf-xet==1.8.0
+huggingface_hub==1.33.0
+loguru==0.7.3
+mmh3==5.3.1
+numpy==2.5.4
+onnxruntime==1.31.1
+pillow==13.0.0
+protobuf==7.36.2
+py_rust_stemmers==0.1.8
+PyYAML==6.0.3
+requests==2.34.2
+tokenizers==0.23.3
+tqdm==4.70.1
+urllib3==2.8.0
