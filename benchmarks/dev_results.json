@@ -1,0 +1,1047 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-07T06:02:23.864926+00:00",
+  "metadata": {
+    "split": "dev",
+    "cases": 10,
+    "documents": 33,
+    "chunks": 33,
+    "repeats": 3,
+    "candidate_k": 10,
+    "rrf_k": 60,
+    "dataset_sha256": "7e50c355820d1a51a6cb5a4b4e640caa7bc4ab06aef722369c856b7c0de92bec",
+    "source_and_corpus_sha256": "f7ff36db92fd1d2738e06b1f20a4def4da97169785d8cc3c0710aa46d836bb6c",
+    "model": "BAAI/bge-small-zh-v1.5",
+    "model_identity": "BAAI/bge-small-zh-v1.5|fastembed=0.9.1|artifacts=12c903c110273e6ccacba3cab28b971c9cc4743c571ff49a9b25ea840719da9b|query_prefix=为这个句子生成表示以用于检索相关文章：",
+    "fastembed_version": "0.9.1",
+    "python": "3.12.4",
+    "platform": "macOS-15.3.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "setup_ms": 676.168,
+    "document_vector_cache_hit": true,
+    "latency_scope": "warm sequential retrieval including query embedding, cosine scan and fusion; excludes download, index construction, LLM and HTTP; document vectors cached; no query-vector cache",
+    "limitations": "Synthetic manually authored corpus/labels, no independent review; single-machine small-sample results, not production or end-to-end answer accuracy. No-answer candidate rate is diagnostic, not hallucination rate."
+  },
+  "results": {
+    "bm25": {
+      "summary": {
+        "answerable": {
+          "count": 8,
+          "p50_ms": 0.185,
+          "p95_ms": 0.233,
+          "hit_at_1": 0.75,
+          "recall_at_3": 0.875,
+          "mrr_at_3": 0.7916666666666666
+        },
+        "exact": {
+          "count": 4,
+          "p50_ms": 0.18,
+          "p95_ms": 0.273,
+          "hit_at_1": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0
+        },
+        "paraphrase": {
+          "count": 4,
+          "p50_ms": 0.191,
+          "p95_ms": 0.23,
+          "hit_at_1": 0.5,
+          "recall_at_3": 0.75,
+          "mrr_at_3": 0.5833333333333334
+        },
+        "no_answer": {
+          "count": 2,
+          "p50_ms": 0.163,
+          "p95_ms": 0.18,
+          "returned_candidates_rate": 1.0
+        }
+      },
+      "cases": [
+        {
+          "id": "dev-01",
+          "split": "dev",
+          "category": "exact",
+          "query": "设备报修后IT首次响应时限是多少？",
+          "relevant_ids": [
+            "equipment_repair:1"
+          ],
+          "evidence_quotes": [
+            "4 个工作小时"
+          ],
+          "ids": [
+            "equipment_repair:1",
+            "customer_complaints:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            21.3161,
+            8.6758,
+            4.0105
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1883,
+            0.2333,
+            0.2731
+          ]
+        },
+        {
+          "id": "dev-02",
+          "split": "dev",
+          "category": "exact",
+          "query": "会议室最多一次能约多久？",
+          "relevant_ids": [
+            "meeting_rooms:1"
+          ],
+          "evidence_quotes": [
+            "最长 2 小时"
+          ],
+          "ids": [
+            "meeting_rooms:1",
+            "suppliers:1",
+            "attendance:1"
+          ],
+          "scores": [
+            11.2512,
+            3.2839,
+            2.7232
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1529,
+            0.1422,
+            0.1205
+          ]
+        },
+        {
+          "id": "dev-03",
+          "split": "dev",
+          "category": "exact",
+          "query": "来访登记需要提前几个工作日？",
+          "relevant_ids": [
+            "visitors:1"
+          ],
+          "evidence_quotes": [
+            "提前 1 个工作日"
+          ],
+          "ids": [
+            "visitors:1",
+            "leave:1",
+            "attendance:1"
+          ],
+          "scores": [
+            9.5831,
+            6.5154,
+            6.4078
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2064,
+            0.2047,
+            0.1783
+          ]
+        },
+        {
+          "id": "dev-04",
+          "split": "dev",
+          "category": "exact",
+          "query": "合同盖章前需要完成哪些评审？",
+          "relevant_ids": [
+            "contracts:1"
+          ],
+          "evidence_quotes": [
+            "法务审核法律条款"
+          ],
+          "ids": [
+            "contracts:1",
+            "onboarding:1",
+            "probation:1"
+          ],
+          "scores": [
+            12.9246,
+            4.0487,
+            3.4262
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1419,
+            0.1512,
+            0.1826
+          ]
+        },
+        {
+          "id": "dev-05",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "电脑坏了报上去，多快会有人先接单？",
+          "relevant_ids": [
+            "equipment_repair:1"
+          ],
+          "evidence_quotes": [
+            "4 个工作小时"
+          ],
+          "ids": [
+            "asset_borrow:1",
+            "remote_work:1",
+            "equipment_repair:1"
+          ],
+          "scores": [
+            2.1099,
+            2.1011,
+            2.0836
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.3333333333333333
+          },
+          "latencies_ms": [
+            0.1776,
+            0.1505,
+            0.18
+          ]
+        },
+        {
+          "id": "dev-06",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "占着会议房间迟迟没人来，会不会被系统取消？",
+          "relevant_ids": [
+            "meeting_rooms:1"
+          ],
+          "evidence_quotes": [
+            "15 分钟"
+          ],
+          "ids": [
+            "meeting_rooms:1",
+            "business_trip_booking:1",
+            "attendance:1"
+          ],
+          "scores": [
+            10.1828,
+            6.9822,
+            1.577
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1814,
+            0.2213,
+            0.2145
+          ]
+        },
+        {
+          "id": "dev-07",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "外单位的人进办公区，可以自己逛吗？",
+          "relevant_ids": [
+            "visitors:1"
+          ],
+          "evidence_quotes": [
+            "员工全程陪同"
+          ],
+          "ids": [
+            "visitors:1",
+            "meal_entertainment:1",
+            "remote_work:1"
+          ],
+          "scores": [
+            7.4931,
+            2.656,
+            2.5727
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1807,
+            0.1924,
+            0.1892
+          ]
+        },
+        {
+          "id": "dev-08",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "准备跟外面签协议，得先让哪几个部门把关？",
+          "relevant_ids": [
+            "contracts:1"
+          ],
+          "evidence_quotes": [
+            "财务审核付款条款"
+          ],
+          "ids": [
+            "suppliers:1",
+            "procurement:1",
+            "reimbursement:1"
+          ],
+          "scores": [
+            1.6055,
+            1.5912,
+            1.2859
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.2202,
+            0.2302,
+            0.1922
+          ]
+        },
+        {
+          "id": "dev-09",
+          "split": "dev",
+          "category": "no_answer",
+          "query": "公司有几家分公司？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "business_cards:1",
+            "vpn:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            2.1555,
+            1.8443,
+            1.3303
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.102,
+            0.1665,
+            0.1225
+          ]
+        },
+        {
+          "id": "dev-10",
+          "split": "dev",
+          "category": "no_answer",
+          "query": "员工健身补贴是多少钱？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "onboarding:1",
+            "visitors:1",
+            "business_cards:1"
+          ],
+          "scores": [
+            1.3189,
+            1.1496,
+            1.1429
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.1621,
+            0.1644,
+            0.1803
+          ]
+        }
+      ]
+    },
+    "dense": {
+      "summary": {
+        "answerable": {
+          "count": 8,
+          "p50_ms": 8.106,
+          "p95_ms": 8.96,
+          "hit_at_1": 0.875,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 0.9375
+        },
+        "exact": {
+          "count": 4,
+          "p50_ms": 7.806,
+          "p95_ms": 8.845,
+          "hit_at_1": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0
+        },
+        "paraphrase": {
+          "count": 4,
+          "p50_ms": 8.156,
+          "p95_ms": 9.662,
+          "hit_at_1": 0.75,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 0.875
+        },
+        "no_answer": {
+          "count": 2,
+          "p50_ms": 6.446,
+          "p95_ms": 6.606,
+          "returned_candidates_rate": 1.0
+        }
+      },
+      "cases": [
+        {
+          "id": "dev-01",
+          "split": "dev",
+          "category": "exact",
+          "query": "设备报修后IT首次响应时限是多少？",
+          "relevant_ids": [
+            "equipment_repair:1"
+          ],
+          "evidence_quotes": [
+            "4 个工作小时"
+          ],
+          "ids": [
+            "equipment_repair:1",
+            "customer_complaints:1",
+            "training:1"
+          ],
+          "scores": [
+            0.69046372,
+            0.5460828,
+            0.46886511
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.552,
+            8.8453,
+            8.4378
+          ]
+        },
+        {
+          "id": "dev-02",
+          "split": "dev",
+          "category": "exact",
+          "query": "会议室最多一次能约多久？",
+          "relevant_ids": [
+            "meeting_rooms:1"
+          ],
+          "evidence_quotes": [
+            "最长 2 小时"
+          ],
+          "ids": [
+            "meeting_rooms:1",
+            "remote_work:1",
+            "visitors:1"
+          ],
+          "scores": [
+            0.61676565,
+            0.43382473,
+            0.41141355
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            6.8636,
+            7.4742,
+            7.1309
+          ]
+        },
+        {
+          "id": "dev-03",
+          "split": "dev",
+          "category": "exact",
+          "query": "来访登记需要提前几个工作日？",
+          "relevant_ids": [
+            "visitors:1"
+          ],
+          "evidence_quotes": [
+            "提前 1 个工作日"
+          ],
+          "ids": [
+            "visitors:1",
+            "leave:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.63957789,
+            0.57208386,
+            0.57012224
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.2899,
+            8.0598,
+            8.288
+          ]
+        },
+        {
+          "id": "dev-04",
+          "split": "dev",
+          "category": "exact",
+          "query": "合同盖章前需要完成哪些评审？",
+          "relevant_ids": [
+            "contracts:1"
+          ],
+          "evidence_quotes": [
+            "法务审核法律条款"
+          ],
+          "ids": [
+            "contracts:1",
+            "archive:1",
+            "procurement:1"
+          ],
+          "scores": [
+            0.68524873,
+            0.56301034,
+            0.50237481
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.2598,
+            8.1522,
+            8.464
+          ]
+        },
+        {
+          "id": "dev-05",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "电脑坏了报上去，多快会有人先接单？",
+          "relevant_ids": [
+            "equipment_repair:1"
+          ],
+          "evidence_quotes": [
+            "4 个工作小时"
+          ],
+          "ids": [
+            "equipment_repair:1",
+            "customer_complaints:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            0.58012719,
+            0.49074906,
+            0.48694249
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.6265,
+            7.3007,
+            9.6622
+          ]
+        },
+        {
+          "id": "dev-06",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "占着会议房间迟迟没人来，会不会被系统取消？",
+          "relevant_ids": [
+            "meeting_rooms:1"
+          ],
+          "evidence_quotes": [
+            "15 分钟"
+          ],
+          "ids": [
+            "meeting_rooms:1",
+            "visitors:1",
+            "remote_work:1"
+          ],
+          "scores": [
+            0.58125682,
+            0.44905164,
+            0.43534129
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.1556,
+            8.9598,
+            8.2153
+          ]
+        },
+        {
+          "id": "dev-07",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "外单位的人进办公区，可以自己逛吗？",
+          "relevant_ids": [
+            "visitors:1"
+          ],
+          "evidence_quotes": [
+            "员工全程陪同"
+          ],
+          "ids": [
+            "remote_work:1",
+            "visitors:1",
+            "taxi:1"
+          ],
+          "scores": [
+            0.47772847,
+            0.45516803,
+            0.42526706
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.5
+          },
+          "latencies_ms": [
+            7.3028,
+            7.8117,
+            7.6169
+          ]
+        },
+        {
+          "id": "dev-08",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "准备跟外面签协议，得先让哪几个部门把关？",
+          "relevant_ids": [
+            "contracts:1"
+          ],
+          "evidence_quotes": [
+            "财务审核付款条款"
+          ],
+          "ids": [
+            "contracts:1",
+            "visitors:1",
+            "meeting_rooms:1"
+          ],
+          "scores": [
+            0.51018188,
+            0.48336398,
+            0.47356967
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.1561,
+            8.3703,
+            8.2203
+          ]
+        },
+        {
+          "id": "dev-09",
+          "split": "dev",
+          "category": "no_answer",
+          "query": "公司有几家分公司？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "business_cards:1",
+            "asset_borrow:1",
+            "remote_work:1"
+          ],
+          "scores": [
+            0.43210033,
+            0.40422612,
+            0.39282811
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.2752,
+            6.6055,
+            6.5516
+          ]
+        },
+        {
+          "id": "dev-10",
+          "split": "dev",
+          "category": "no_answer",
+          "query": "员工健身补贴是多少钱？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "payroll:1",
+            "training:1",
+            "attendance:1"
+          ],
+          "scores": [
+            0.52205247,
+            0.48405475,
+            0.4703576
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.2123,
+            6.4825,
+            6.409
+          ]
+        }
+      ]
+    },
+    "hybrid": {
+      "summary": {
+        "answerable": {
+          "count": 8,
+          "p50_ms": 8.115,
+          "p95_ms": 9.492,
+          "hit_at_1": 0.875,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 0.9375
+        },
+        "exact": {
+          "count": 4,
+          "p50_ms": 7.638,
+          "p95_ms": 9.492,
+          "hit_at_1": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0
+        },
+        "paraphrase": {
+          "count": 4,
+          "p50_ms": 8.3,
+          "p95_ms": 9.882,
+          "hit_at_1": 0.75,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 0.875
+        },
+        "no_answer": {
+          "count": 2,
+          "p50_ms": 6.864,
+          "p95_ms": 8.45,
+          "returned_candidates_rate": 1.0
+        }
+      },
+      "cases": [
+        {
+          "id": "dev-01",
+          "split": "dev",
+          "category": "exact",
+          "query": "设备报修后IT首次响应时限是多少？",
+          "relevant_ids": [
+            "equipment_repair:1"
+          ],
+          "evidence_quotes": [
+            "4 个工作小时"
+          ],
+          "ids": [
+            "equipment_repair:1",
+            "customer_complaints:1",
+            "meeting_rooms:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03225806,
+            0.03053613
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.6158,
+            8.1578,
+            8.1673
+          ]
+        },
+        {
+          "id": "dev-02",
+          "split": "dev",
+          "category": "exact",
+          "query": "会议室最多一次能约多久？",
+          "relevant_ids": [
+            "meeting_rooms:1"
+          ],
+          "evidence_quotes": [
+            "最长 2 小时"
+          ],
+          "ids": [
+            "meeting_rooms:1",
+            "remote_work:1",
+            "attendance:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03175403,
+            0.03079839
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.2388,
+            7.1724,
+            7.4271
+          ]
+        },
+        {
+          "id": "dev-03",
+          "split": "dev",
+          "category": "exact",
+          "query": "来访登记需要提前几个工作日？",
+          "relevant_ids": [
+            "visitors:1"
+          ],
+          "evidence_quotes": [
+            "提前 1 个工作日"
+          ],
+          "ids": [
+            "visitors:1",
+            "leave:1",
+            "attendance:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03225806,
+            0.03149802
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.608,
+            8.156,
+            7.6608
+          ]
+        },
+        {
+          "id": "dev-04",
+          "split": "dev",
+          "category": "exact",
+          "query": "合同盖章前需要完成哪些评审？",
+          "relevant_ids": [
+            "contracts:1"
+          ],
+          "evidence_quotes": [
+            "法务审核法律条款"
+          ],
+          "ids": [
+            "contracts:1",
+            "archive:1",
+            "probation:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.03036577
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.4098,
+            9.4918,
+            8.2454
+          ]
+        },
+        {
+          "id": "dev-05",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "电脑坏了报上去，多快会有人先接单？",
+          "relevant_ids": [
+            "equipment_repair:1"
+          ],
+          "evidence_quotes": [
+            "4 个工作小时"
+          ],
+          "ids": [
+            "asset_borrow:1",
+            "equipment_repair:1",
+            "onboarding:1"
+          ],
+          "scores": [
+            0.03226646,
+            0.03226646,
+            0.02991071
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.5
+          },
+          "latencies_ms": [
+            7.8908,
+            8.0968,
+            8.1327
+          ]
+        },
+        {
+          "id": "dev-06",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "占着会议房间迟迟没人来，会不会被系统取消？",
+          "relevant_ids": [
+            "meeting_rooms:1"
+          ],
+          "evidence_quotes": [
+            "15 分钟"
+          ],
+          "ids": [
+            "meeting_rooms:1",
+            "business_trip_booking:1",
+            "visitors:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03175403,
+            0.01612903
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.4672,
+            9.8819,
+            8.9872
+          ]
+        },
+        {
+          "id": "dev-07",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "外单位的人进办公区，可以自己逛吗？",
+          "relevant_ids": [
+            "visitors:1"
+          ],
+          "evidence_quotes": [
+            "员工全程陪同"
+          ],
+          "ids": [
+            "visitors:1",
+            "remote_work:1",
+            "vpn:1"
+          ],
+          "scores": [
+            0.03252247,
+            0.03226646,
+            0.03055037
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.8508,
+            8.0734,
+            7.801
+          ]
+        },
+        {
+          "id": "dev-08",
+          "split": "dev",
+          "category": "paraphrase",
+          "query": "准备跟外面签协议，得先让哪几个部门把关？",
+          "relevant_ids": [
+            "contracts:1"
+          ],
+          "evidence_quotes": [
+            "财务审核付款条款"
+          ],
+          "ids": [
+            "contracts:1",
+            "procurement:1",
+            "suppliers:1"
+          ],
+          "scores": [
+            0.03201844,
+            0.03128055,
+            0.03109932
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.518,
+            8.5139,
+            9.1786
+          ]
+        },
+        {
+          "id": "dev-09",
+          "split": "dev",
+          "category": "no_answer",
+          "query": "公司有几家分公司？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "business_cards:1",
+            "asset_borrow:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03200205,
+            0.03125
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.6215,
+            7.6825,
+            6.5466
+          ]
+        },
+        {
+          "id": "dev-10",
+          "split": "dev",
+          "category": "no_answer",
+          "query": "员工健身补贴是多少钱？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "onboarding:1",
+            "payroll:1",
+            "attendance:1"
+          ],
+          "scores": [
+            0.03154496,
+            0.03067916,
+            0.0305789
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.5984,
+            7.1066,
+            8.45
+          ]
+        }
+      ]
+    }
+  }
+}

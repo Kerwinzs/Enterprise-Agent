@@ -1,0 +1,4965 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-07T06:03:12.217146+00:00",
+  "metadata": {
+    "split": "test",
+    "cases": 50,
+    "documents": 33,
+    "chunks": 33,
+    "repeats": 5,
+    "candidate_k": 10,
+    "rrf_k": 60,
+    "dataset_sha256": "7e50c355820d1a51a6cb5a4b4e640caa7bc4ab06aef722369c856b7c0de92bec",
+    "source_and_corpus_sha256": "f7ff36db92fd1d2738e06b1f20a4def4da97169785d8cc3c0710aa46d836bb6c",
+    "model": "BAAI/bge-small-zh-v1.5",
+    "model_identity": "BAAI/bge-small-zh-v1.5|fastembed=0.9.1|artifacts=12c903c110273e6ccacba3cab28b971c9cc4743c571ff49a9b25ea840719da9b|query_prefix=为这个句子生成表示以用于检索相关文章：",
+    "fastembed_version": "0.9.1",
+    "python": "3.12.4",
+    "platform": "macOS-15.3.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "setup_ms": 571.806,
+    "document_vector_cache_hit": true,
+    "latency_scope": "warm sequential retrieval including query embedding, cosine scan and fusion; excludes download, index construction, LLM and HTTP; document vectors cached; no query-vector cache",
+    "limitations": "Synthetic manually authored corpus/labels, no independent review; single-machine small-sample results, not production or end-to-end answer accuracy. No-answer candidate rate is diagnostic, not hallucination rate."
+  },
+  "results": {
+    "bm25": {
+      "summary": {
+        "answerable": {
+          "count": 40,
+          "p50_ms": 0.194,
+          "p95_ms": 0.26,
+          "hit_at_1": 0.65,
+          "recall_at_3": 0.75,
+          "mrr_at_3": 0.6958333333333333
+        },
+        "exact": {
+          "count": 20,
+          "p50_ms": 0.184,
+          "p95_ms": 0.224,
+          "hit_at_1": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0
+        },
+        "paraphrase": {
+          "count": 20,
+          "p50_ms": 0.207,
+          "p95_ms": 0.264,
+          "hit_at_1": 0.3,
+          "recall_at_3": 0.5,
+          "mrr_at_3": 0.39166666666666666
+        },
+        "no_answer": {
+          "count": 10,
+          "p50_ms": 0.167,
+          "p95_ms": 0.221,
+          "returned_candidates_rate": 0.8
+        }
+      },
+      "cases": [
+        {
+          "id": "test-01",
+          "split": "test",
+          "category": "exact",
+          "query": "一线城市出差住宿报销标准是多少？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "evidence_quotes": [
+            "一线城市每晚不超过 600 元"
+          ],
+          "ids": [
+            "reimbursement:1",
+            "taxi:1",
+            "meal_entertainment:1"
+          ],
+          "scores": [
+            23.1358,
+            9.1856,
+            6.2251
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1761,
+            0.1775,
+            0.2135,
+            0.176,
+            0.1593
+          ]
+        },
+        {
+          "id": "test-02",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "住酒店最多能报多少钱？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "evidence_quotes": [
+            "一线城市每晚不超过 600 元"
+          ],
+          "ids": [
+            "business_trip_booking:1",
+            "attendance:1",
+            "remote_work:1"
+          ],
+          "scores": [
+            3.0746,
+            2.7232,
+            2.7118
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.129,
+            0.1088,
+            0.1322,
+            0.109,
+            0.1055
+          ]
+        },
+        {
+          "id": "test-03",
+          "split": "test",
+          "category": "exact",
+          "query": "订单逾期超过15天应该通知谁？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "evidence_quotes": [
+            "逾期超过 15 天，应通知销售负责人"
+          ],
+          "ids": [
+            "collections:1",
+            "purchase_approval:1",
+            "procurement:1"
+          ],
+          "scores": [
+            20.1621,
+            4.451,
+            3.7406
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1878,
+            0.191,
+            0.1661,
+            0.1871,
+            0.2106
+          ]
+        },
+        {
+          "id": "test-04",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "客户欠款拖了半个月，接下来该找谁处理？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "evidence_quotes": [
+            "逾期超过 15 天，应通知销售负责人"
+          ],
+          "ids": [
+            "customer_complaints:1",
+            "collections:1",
+            "refunds:1"
+          ],
+          "scores": [
+            5.0146,
+            3.5021,
+            3.2217
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.5
+          },
+          "latencies_ms": [
+            0.2016,
+            0.1926,
+            0.2037,
+            0.1952,
+            0.1992
+          ]
+        },
+        {
+          "id": "test-05",
+          "split": "test",
+          "category": "exact",
+          "query": "API密钥应该保存在什么地方？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "evidence_quotes": [
+            "不得写入前端代码"
+          ],
+          "ids": [
+            "security:1",
+            "data_export:1"
+          ],
+          "scores": [
+            13.7215,
+            2.5713
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1463,
+            0.122,
+            0.1485,
+            0.124,
+            0.1461
+          ]
+        },
+        {
+          "id": "test-06",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "接入模型那串凭证可以直接写到网页代码里吗？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "evidence_quotes": [
+            "不得写入前端代码"
+          ],
+          "ids": [
+            "vpn:1",
+            "archive:1",
+            "invoices:1"
+          ],
+          "scores": [
+            5.7193,
+            3.2155,
+            3.1758
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.2074,
+            0.1831,
+            0.2135,
+            0.2161,
+            0.1808
+          ]
+        },
+        {
+          "id": "test-07",
+          "split": "test",
+          "category": "exact",
+          "query": "连续休年假5天需要提前多久申请？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "evidence_quotes": [
+            "提前 10 个工作日"
+          ],
+          "ids": [
+            "leave:1",
+            "reimbursement:1",
+            "password:1"
+          ],
+          "scores": [
+            21.6794,
+            5.2308,
+            4.5851
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2032,
+            0.2074,
+            0.1829,
+            0.1839,
+            0.1808
+          ]
+        },
+        {
+          "id": "test-08",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "想连着休息一整周，最晚什么时候向领导打招呼？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "evidence_quotes": [
+            "提前 10 个工作日"
+          ],
+          "ids": [],
+          "scores": [],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.1637,
+            0.1995,
+            0.1711,
+            0.1668,
+            0.1726
+          ]
+        },
+        {
+          "id": "test-09",
+          "split": "test",
+          "category": "exact",
+          "query": "周末加班调休的有效期是多久？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "evidence_quotes": [
+            "90 个自然日"
+          ],
+          "ids": [
+            "overtime:1",
+            "vpn:1",
+            "reimbursement:1"
+          ],
+          "scores": [
+            17.3428,
+            5.2336,
+            2.3989
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.13,
+            0.1699,
+            0.1613,
+            0.1623,
+            0.1715
+          ]
+        },
+        {
+          "id": "test-10",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "周六多干的工时换成休息，能留着用到什么时候？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "evidence_quotes": [
+            "90 个自然日"
+          ],
+          "ids": [
+            "payroll:1",
+            "overtime:1"
+          ],
+          "scores": [
+            3.2425,
+            3.0263
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.5
+          },
+          "latencies_ms": [
+            0.1817,
+            0.1737,
+            0.179,
+            0.1958,
+            0.2684
+          ]
+        },
+        {
+          "id": "test-11",
+          "split": "test",
+          "category": "exact",
+          "query": "漏打卡后几个工作日内申请补卡？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "evidence_quotes": [
+            "3 个工作日"
+          ],
+          "ids": [
+            "attendance:1",
+            "leave:1",
+            "invoices:1"
+          ],
+          "scores": [
+            16.9117,
+            5.6553,
+            5.5642
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2051,
+            0.2085,
+            0.2116,
+            0.2127,
+            0.2147
+          ]
+        },
+        {
+          "id": "test-12",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "早上到了公司忘了刷考勤，过多久就不能补了？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "evidence_quotes": [
+            "3 个工作日"
+          ],
+          "ids": [
+            "attendance:1",
+            "collections:1",
+            "business_cards:1"
+          ],
+          "scores": [
+            4.5948,
+            2.4655,
+            2.1555
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2285,
+            0.185,
+            0.1936,
+            0.2134,
+            0.2175
+          ]
+        },
+        {
+          "id": "test-13",
+          "split": "test",
+          "category": "exact",
+          "query": "远程办公每周最多申请几天？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "evidence_quotes": [
+            "每周最多申请 2 天"
+          ],
+          "ids": [
+            "remote_work:1",
+            "vpn:1",
+            "attendance:1"
+          ],
+          "scores": [
+            24.9954,
+            5.1339,
+            3.6869
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1496,
+            0.1535,
+            0.1779,
+            0.1746,
+            0.1607
+          ]
+        },
+        {
+          "id": "test-14",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "一周有几天可以不来办公室、在家干活？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "evidence_quotes": [
+            "每周最多申请 2 天"
+          ],
+          "ids": [
+            "meeting_rooms:1",
+            "remote_work:1",
+            "equipment_repair:1"
+          ],
+          "scores": [
+            4.6753,
+            2.5727,
+            2.2056
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.5
+          },
+          "latencies_ms": [
+            0.1677,
+            0.1829,
+            0.2498,
+            0.201,
+            0.194
+          ]
+        },
+        {
+          "id": "test-15",
+          "split": "test",
+          "category": "exact",
+          "query": "入职首日由谁发放工作电脑和临时账号？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "evidence_quotes": [
+            "IT 在首日发放工作电脑和临时账号"
+          ],
+          "ids": [
+            "onboarding:1",
+            "asset_borrow:1",
+            "visitors:1"
+          ],
+          "scores": [
+            40.2846,
+            5.5261,
+            5.1317
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2177,
+            0.2244,
+            0.2208,
+            0.2159,
+            0.2172
+          ]
+        },
+        {
+          "id": "test-16",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "新同事第一天来，办公机器和登录用的账户找谁领？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "evidence_quotes": [
+            "IT 在首日发放工作电脑和临时账号"
+          ],
+          "ids": [
+            "refunds:1",
+            "training:1",
+            "password:1"
+          ],
+          "scores": [
+            3.7753,
+            3.2839,
+            3.2289
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.2442,
+            0.2142,
+            0.258,
+            0.2163,
+            0.2258
+          ]
+        },
+        {
+          "id": "test-17",
+          "split": "test",
+          "category": "exact",
+          "query": "试用期届满前几天启动转正考核？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "evidence_quotes": [
+            "届满前 15 个自然日"
+          ],
+          "ids": [
+            "probation:1",
+            "asset_borrow:1",
+            "data_export:1"
+          ],
+          "scores": [
+            36.2412,
+            2.7232,
+            2.5713
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.16,
+            0.166,
+            0.1593,
+            0.1587,
+            0.1591
+          ]
+        },
+        {
+          "id": "test-18",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "成为正式员工之前，什么时候开始评估这段时间的表现？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "evidence_quotes": [
+            "届满前 15 个自然日"
+          ],
+          "ids": [
+            "leave:1",
+            "annual_bonus:1",
+            "overtime:1"
+          ],
+          "scores": [
+            6.7989,
+            5.4459,
+            5.3569
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.2444,
+            0.2653,
+            0.2648,
+            0.381,
+            0.2601
+          ]
+        },
+        {
+          "id": "test-19",
+          "split": "test",
+          "category": "exact",
+          "query": "离职员工的工作账号何时停用？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "evidence_quotes": [
+            "最后工作日结束时停用工作账号"
+          ],
+          "ids": [
+            "offboarding:1",
+            "vpn:1",
+            "payroll:1"
+          ],
+          "scores": [
+            17.4083,
+            5.3089,
+            5.0335
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2461,
+            0.1733,
+            0.2032,
+            0.197,
+            0.198
+          ]
+        },
+        {
+          "id": "test-20",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "人走了之后，他的系统登录权限什么时候收回？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "evidence_quotes": [
+            "最后工作日结束时停用工作账号"
+          ],
+          "ids": [
+            "security:1",
+            "password:1",
+            "offboarding:1"
+          ],
+          "scores": [
+            7.2427,
+            4.7927,
+            3.8358
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.3333333333333333
+          },
+          "latencies_ms": [
+            0.1824,
+            0.1769,
+            0.1833,
+            0.2045,
+            0.2243
+          ]
+        },
+        {
+          "id": "test-21",
+          "split": "test",
+          "category": "exact",
+          "query": "公司每月几号发放上月工资？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "evidence_quotes": [
+            "每月 15 日发放上月工资"
+          ],
+          "ids": [
+            "payroll:1",
+            "annual_bonus:1",
+            "attendance:1"
+          ],
+          "scores": [
+            22.5052,
+            3.3144,
+            2.7232
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1627,
+            0.1774,
+            0.1384,
+            0.161,
+            0.143
+          ]
+        },
+        {
+          "id": "test-22",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "每个月哪天钱会打到员工卡上？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "evidence_quotes": [
+            "每月 15 日发放上月工资"
+          ],
+          "ids": [
+            "onboarding:1",
+            "visitors:1",
+            "business_cards:1"
+          ],
+          "scores": [
+            1.3189,
+            1.1496,
+            1.1429
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.1852,
+            0.1527,
+            0.1714,
+            0.1717,
+            0.1732
+          ]
+        },
+        {
+          "id": "test-23",
+          "split": "test",
+          "category": "exact",
+          "query": "外部培训完成后报销比例与年度上限是多少？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "evidence_quotes": [
+            "审批费用的 80%"
+          ],
+          "ids": [
+            "training:1",
+            "annual_bonus:1",
+            "business_trip_booking:1"
+          ],
+          "scores": [
+            19.3172,
+            5.6877,
+            5.2506
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.21,
+            0.2121,
+            0.2744,
+            0.2598,
+            0.19
+          ]
+        },
+        {
+          "id": "test-24",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "自己去外面上完课程拿到结业证，公司能承担多少学费？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "evidence_quotes": [
+            "审批费用的 80%"
+          ],
+          "ids": [
+            "training:1",
+            "business_cards:1",
+            "vpn:1"
+          ],
+          "scores": [
+            13.8669,
+            2.1555,
+            1.8443
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.252,
+            0.215,
+            0.2274,
+            0.2644,
+            0.2162
+          ]
+        },
+        {
+          "id": "test-25",
+          "split": "test",
+          "category": "exact",
+          "query": "单笔采购6000元需要哪些人审批？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "evidence_quotes": [
+            "增加财务负责人审批"
+          ],
+          "ids": [
+            "procurement:1",
+            "purchase_approval:1",
+            "reimbursement:1"
+          ],
+          "scores": [
+            13.2364,
+            5.8661,
+            4.4899
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1823,
+            0.2299,
+            0.1794,
+            0.1534,
+            0.1838
+          ]
+        },
+        {
+          "id": "test-26",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "给团队买六千块的东西，除了部门领导还得谁签字？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "evidence_quotes": [
+            "增加财务负责人审批"
+          ],
+          "ids": [
+            "contracts:1",
+            "offboarding:1",
+            "incident:1"
+          ],
+          "scores": [
+            3.806,
+            3.7436,
+            3.1498
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.2084,
+            0.2632,
+            0.2464,
+            0.2171,
+            0.2408
+          ]
+        },
+        {
+          "id": "test-27",
+          "split": "test",
+          "category": "exact",
+          "query": "因公借用工作电脑最长多少天？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "evidence_quotes": [
+            "最长 30 个自然日"
+          ],
+          "ids": [
+            "asset_borrow:1",
+            "onboarding:1",
+            "taxi:1"
+          ],
+          "scores": [
+            15.2162,
+            5.3676,
+            5.0554
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1942,
+            0.1613,
+            0.1909,
+            0.1934,
+            0.201
+          ]
+        },
+        {
+          "id": "test-28",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "把单位的笔记本带出去办事，最多多久得还回来？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "evidence_quotes": [
+            "最长 30 个自然日"
+          ],
+          "ids": [
+            "attendance:1",
+            "remote_work:1",
+            "visitors:1"
+          ],
+          "scores": [
+            2.7232,
+            2.7118,
+            2.7004
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.2007,
+            0.2064,
+            0.2188,
+            0.2016,
+            0.1836
+          ]
+        },
+        {
+          "id": "test-29",
+          "split": "test",
+          "category": "exact",
+          "query": "VPN临时权限的最长有效期是多少？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "evidence_quotes": [
+            "有效期最长 7 天"
+          ],
+          "ids": [
+            "vpn:1",
+            "offboarding:1",
+            "security:1"
+          ],
+          "scores": [
+            20.1004,
+            4.9492,
+            3.0315
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1503,
+            0.1798,
+            0.1523,
+            0.1773,
+            0.1931
+          ]
+        },
+        {
+          "id": "test-30",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "在家连接单位内网的临时通道，开一次能用多久？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "evidence_quotes": [
+            "有效期最长 7 天"
+          ],
+          "ids": [
+            "vpn:1",
+            "visitors:1",
+            "suppliers:1"
+          ],
+          "scores": [
+            5.4893,
+            5.0527,
+            3.2839
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2816,
+            0.2069,
+            0.208,
+            0.211,
+            0.2103
+          ]
+        },
+        {
+          "id": "test-31",
+          "split": "test",
+          "category": "exact",
+          "query": "公司账号密码最少几位且包含哪些字符？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "evidence_quotes": [
+            "长度至少 12 位"
+          ],
+          "ids": [
+            "password:1",
+            "business_cards:1",
+            "vpn:1"
+          ],
+          "scores": [
+            21.0194,
+            4.4883,
+            3.6979
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2019,
+            0.1717,
+            0.2044,
+            0.2015,
+            0.1703
+          ]
+        },
+        {
+          "id": "test-32",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "登录口令最短要设多长，纯数字行不行？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "evidence_quotes": [
+            "长度至少 12 位"
+          ],
+          "ids": [
+            "password:1",
+            "onboarding:1"
+          ],
+          "scores": [
+            10.8903,
+            2.6451
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1826,
+            0.1735,
+            0.1771,
+            0.1626,
+            0.1778
+          ]
+        },
+        {
+          "id": "test-33",
+          "split": "test",
+          "category": "exact",
+          "query": "导出客户名单需要谁共同批准？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "evidence_quotes": [
+            "数据所属部门负责人及信息安全负责人共同批准"
+          ],
+          "ids": [
+            "data_export:1",
+            "business_trip_booking:1",
+            "reimbursement:1"
+          ],
+          "scores": [
+            24.2892,
+            4.1425,
+            3.939
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1862,
+            0.1788,
+            0.186,
+            0.1565,
+            0.1842
+          ]
+        },
+        {
+          "id": "test-34",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "想把客户通讯录从系统里拉出来，要找哪两方签字？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "evidence_quotes": [
+            "数据所属部门负责人及信息安全负责人共同批准"
+          ],
+          "ids": [
+            "offboarding:1",
+            "invoices:1",
+            "contracts:1"
+          ],
+          "scores": [
+            5.7085,
+            3.7242,
+            2.6892
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.2348,
+            0.2384,
+            0.2157,
+            0.2178,
+            0.237
+          ]
+        },
+        {
+          "id": "test-35",
+          "split": "test",
+          "category": "exact",
+          "query": "客户开票申请需要核对哪些字段？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "evidence_quotes": [
+            "对应订单编号"
+          ],
+          "ids": [
+            "invoices:1",
+            "data_export:1",
+            "training:1"
+          ],
+          "scores": [
+            20.3255,
+            5.8999,
+            4.2558
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.1706,
+            0.1928,
+            0.1981,
+            0.1979,
+            0.2039
+          ]
+        },
+        {
+          "id": "test-36",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "给客户开票时，抬头和税号之外还要准备哪些信息？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "evidence_quotes": [
+            "对应订单编号"
+          ],
+          "ids": [
+            "invoices:1",
+            "collections:1",
+            "data_export:1"
+          ],
+          "scores": [
+            11.0813,
+            3.389,
+            2.978
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.216,
+            0.2405,
+            0.2145,
+            0.2613,
+            0.2227
+          ]
+        },
+        {
+          "id": "test-37",
+          "split": "test",
+          "category": "exact",
+          "query": "财务批准退款后几个工作日内到账？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "evidence_quotes": [
+            "7 个工作日"
+          ],
+          "ids": [
+            "refunds:1",
+            "reimbursement:1",
+            "invoices:1"
+          ],
+          "scores": [
+            16.2505,
+            5.615,
+            5.4571
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2263,
+            0.2227,
+            0.2233,
+            0.2011,
+            0.2035
+          ]
+        },
+        {
+          "id": "test-38",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "客户要求退钱，审批走完后要等多久才能退回去？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "evidence_quotes": [
+            "7 个工作日"
+          ],
+          "ids": [
+            "refunds:1",
+            "meal_entertainment:1",
+            "collections:1"
+          ],
+          "scores": [
+            4.7138,
+            4.243,
+            3.1232
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.2399,
+            0.2355,
+            0.2342,
+            0.2293,
+            0.2289
+          ]
+        },
+        {
+          "id": "test-39",
+          "split": "test",
+          "category": "exact",
+          "query": "客户业务招待的人均餐费上限是多少？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "evidence_quotes": [
+            "人均餐费上限为 200 元"
+          ],
+          "ids": [
+            "meal_entertainment:1",
+            "collections:1",
+            "data_export:1"
+          ],
+          "scores": [
+            32.7865,
+            2.9855,
+            2.9033
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            0.176,
+            0.1743,
+            0.203,
+            0.2021,
+            0.2042
+          ]
+        },
+        {
+          "id": "test-40",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "请客户吃饭，平均每个人能花多少钱？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "evidence_quotes": [
+            "人均餐费上限为 200 元"
+          ],
+          "ids": [
+            "refunds:1",
+            "data_export:1",
+            "annual_bonus:1"
+          ],
+          "scores": [
+            3.5959,
+            3.4813,
+            2.8996
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            0.1818,
+            0.1912,
+            0.1593,
+            0.1827,
+            0.174
+          ]
+        },
+        {
+          "id": "test-41",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司今年有多少名员工？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "business_cards:1",
+            "vpn:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            3.2984,
+            2.6436,
+            2.1499
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.138,
+            0.1345,
+            0.1595,
+            0.1635,
+            0.1633
+          ]
+        },
+        {
+          "id": "test-42",
+          "split": "test",
+          "category": "no_answer",
+          "query": "年度体检费用能报销多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "training:1",
+            "annual_bonus:1",
+            "business_trip_booking:1"
+          ],
+          "scores": [
+            6.6723,
+            5.6877,
+            3.0108
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.1369,
+            0.1562,
+            0.131,
+            0.1474,
+            0.1508
+          ]
+        },
+        {
+          "id": "test-43",
+          "split": "test",
+          "category": "no_answer",
+          "query": "生育假有多少天？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [],
+          "scores": [],
+          "metrics": {},
+          "latencies_ms": [
+            0.1045,
+            0.113,
+            0.1222,
+            0.1048,
+            0.1147
+          ]
+        },
+        {
+          "id": "test-44",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司明年会给员工涨薪多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "business_cards:1",
+            "vpn:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            3.2984,
+            2.6436,
+            2.1499
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.1777,
+            0.1554,
+            0.1818,
+            0.1772,
+            0.174
+          ]
+        },
+        {
+          "id": "test-45",
+          "split": "test",
+          "category": "no_answer",
+          "query": "明天青岛会下雨吗？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [],
+          "scores": [],
+          "metrics": {},
+          "latencies_ms": [
+            0.1072,
+            0.1132,
+            0.0872,
+            0.1155,
+            0.1306
+          ]
+        },
+        {
+          "id": "test-46",
+          "split": "test",
+          "category": "no_answer",
+          "query": "员工商业医疗保险的保额是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "suppliers:1",
+            "onboarding:1",
+            "visitors:1"
+          ],
+          "scores": [
+            3.2839,
+            1.3189,
+            1.1496
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.1818,
+            0.1847,
+            0.1675,
+            0.1751,
+            0.2214
+          ]
+        },
+        {
+          "id": "test-47",
+          "split": "test",
+          "category": "no_answer",
+          "query": "明年春节统一放假日期是哪几天？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "asset_borrow:1",
+            "payroll:1",
+            "purchase_approval:1"
+          ],
+          "scores": [
+            2.7232,
+            2.7118,
+            2.656
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.1721,
+            0.1465,
+            0.1432,
+            0.1675,
+            0.1662
+          ]
+        },
+        {
+          "id": "test-48",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司首席执行官的私人手机号码是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "archive:1",
+            "taxi:1",
+            "business_cards:1"
+          ],
+          "scores": [
+            2.3425,
+            2.3041,
+            2.1555
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.1911,
+            0.1992,
+            0.1676,
+            0.1742,
+            0.1873
+          ]
+        },
+        {
+          "id": "test-49",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司上一财年的营业收入是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "suppliers:1",
+            "business_cards:1",
+            "vpn:1"
+          ],
+          "scores": [
+            3.2839,
+            2.1555,
+            1.8443
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.1458,
+            0.1784,
+            0.1745,
+            0.1674,
+            0.1816
+          ]
+        },
+        {
+          "id": "test-50",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司为员工提供住房贷款的利率是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "payroll:1",
+            "reimbursement:1",
+            "probation:1"
+          ],
+          "scores": [
+            5.1094,
+            4.3221,
+            4.2634
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            0.2131,
+            0.2141,
+            0.2137,
+            0.2258,
+            0.2339
+          ]
+        }
+      ]
+    },
+    "dense": {
+      "summary": {
+        "answerable": {
+          "count": 40,
+          "p50_ms": 7.655,
+          "p95_ms": 8.574,
+          "hit_at_1": 0.9,
+          "recall_at_3": 0.95,
+          "mrr_at_3": 0.925
+        },
+        "exact": {
+          "count": 20,
+          "p50_ms": 7.238,
+          "p95_ms": 8.043,
+          "hit_at_1": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0
+        },
+        "paraphrase": {
+          "count": 20,
+          "p50_ms": 8.101,
+          "p95_ms": 8.754,
+          "hit_at_1": 0.8,
+          "recall_at_3": 0.9,
+          "mrr_at_3": 0.85
+        },
+        "no_answer": {
+          "count": 10,
+          "p50_ms": 6.777,
+          "p95_ms": 8.006,
+          "returned_candidates_rate": 1.0
+        }
+      },
+      "cases": [
+        {
+          "id": "test-01",
+          "split": "test",
+          "category": "exact",
+          "query": "一线城市出差住宿报销标准是多少？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "evidence_quotes": [
+            "一线城市每晚不超过 600 元"
+          ],
+          "ids": [
+            "reimbursement:1",
+            "business_trip_booking:1",
+            "taxi:1"
+          ],
+          "scores": [
+            0.71839024,
+            0.6145831,
+            0.55352893
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.2206,
+            7.3959,
+            7.2074,
+            7.2553,
+            7.4269
+          ]
+        },
+        {
+          "id": "test-02",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "住酒店最多能报多少钱？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "evidence_quotes": [
+            "一线城市每晚不超过 600 元"
+          ],
+          "ids": [
+            "reimbursement:1",
+            "business_trip_booking:1",
+            "meal_entertainment:1"
+          ],
+          "scores": [
+            0.59761639,
+            0.5474651,
+            0.52600563
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            6.1244,
+            6.2443,
+            6.1905,
+            6.4092,
+            6.1742
+          ]
+        },
+        {
+          "id": "test-03",
+          "split": "test",
+          "category": "exact",
+          "query": "订单逾期超过15天应该通知谁？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "evidence_quotes": [
+            "逾期超过 15 天，应通知销售负责人"
+          ],
+          "ids": [
+            "collections:1",
+            "suppliers:1",
+            "incident:1"
+          ],
+          "scores": [
+            0.62056209,
+            0.50822651,
+            0.50029097
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.2389,
+            7.3895,
+            7.1332,
+            7.1248,
+            8.0425
+          ]
+        },
+        {
+          "id": "test-04",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "客户欠款拖了半个月，接下来该找谁处理？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "evidence_quotes": [
+            "逾期超过 15 天，应通知销售负责人"
+          ],
+          "ids": [
+            "collections:1",
+            "customer_complaints:1",
+            "refunds:1"
+          ],
+          "scores": [
+            0.55700768,
+            0.4973129,
+            0.49660398
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.4426,
+            7.5634,
+            7.3856,
+            7.4764,
+            7.9332
+          ]
+        },
+        {
+          "id": "test-05",
+          "split": "test",
+          "category": "exact",
+          "query": "API密钥应该保存在什么地方？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "evidence_quotes": [
+            "不得写入前端代码"
+          ],
+          "ids": [
+            "security:1",
+            "password:1",
+            "vpn:1"
+          ],
+          "scores": [
+            0.62100184,
+            0.46928513,
+            0.44198986
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            6.694,
+            6.7531,
+            6.7075,
+            6.6947,
+            7.0685
+          ]
+        },
+        {
+          "id": "test-06",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "接入模型那串凭证可以直接写到网页代码里吗？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "evidence_quotes": [
+            "不得写入前端代码"
+          ],
+          "ids": [
+            "data_export:1",
+            "vpn:1",
+            "archive:1"
+          ],
+          "scores": [
+            0.50729248,
+            0.49892748,
+            0.46246077
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            7.9607,
+            8.0792,
+            7.9669,
+            8.227,
+            8.2211
+          ]
+        },
+        {
+          "id": "test-07",
+          "split": "test",
+          "category": "exact",
+          "query": "连续休年假5天需要提前多久申请？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "evidence_quotes": [
+            "提前 10 个工作日"
+          ],
+          "ids": [
+            "leave:1",
+            "overtime:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.73923152,
+            0.62064556,
+            0.59352297
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.3346,
+            7.2838,
+            7.4635,
+            7.2605,
+            7.2363
+          ]
+        },
+        {
+          "id": "test-08",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "想连着休息一整周，最晚什么时候向领导打招呼？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "evidence_quotes": [
+            "提前 10 个工作日"
+          ],
+          "ids": [
+            "overtime:1",
+            "onboarding:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.49323976,
+            0.4887662,
+            0.457658
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            8.4284,
+            8.365,
+            8.4591,
+            8.4896,
+            8.5741
+          ]
+        },
+        {
+          "id": "test-09",
+          "split": "test",
+          "category": "exact",
+          "query": "周末加班调休的有效期是多久？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "evidence_quotes": [
+            "90 个自然日"
+          ],
+          "ids": [
+            "overtime:1",
+            "leave:1",
+            "probation:1"
+          ],
+          "scores": [
+            0.70080581,
+            0.55800592,
+            0.53471892
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.3045,
+            7.1899,
+            7.2907,
+            7.3392,
+            7.2517
+          ]
+        },
+        {
+          "id": "test-10",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "周六多干的工时换成休息，能留着用到什么时候？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "evidence_quotes": [
+            "90 个自然日"
+          ],
+          "ids": [
+            "overtime:1",
+            "attendance:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.54635303,
+            0.49281128,
+            0.48560844
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.4728,
+            8.5317,
+            8.4167,
+            8.4647,
+            8.7539
+          ]
+        },
+        {
+          "id": "test-11",
+          "split": "test",
+          "category": "exact",
+          "query": "漏打卡后几个工作日内申请补卡？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "evidence_quotes": [
+            "3 个工作日"
+          ],
+          "ids": [
+            "attendance:1",
+            "leave:1",
+            "onboarding:1"
+          ],
+          "scores": [
+            0.76945654,
+            0.54141291,
+            0.53172134
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            6.902,
+            6.7287,
+            6.8907,
+            6.7284,
+            7.0195
+          ]
+        },
+        {
+          "id": "test-12",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "早上到了公司忘了刷考勤，过多久就不能补了？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "evidence_quotes": [
+            "3 个工作日"
+          ],
+          "ids": [
+            "attendance:1",
+            "taxi:1",
+            "equipment_repair:1"
+          ],
+          "scores": [
+            0.70584846,
+            0.52743612,
+            0.50976512
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.109,
+            7.8941,
+            8.0548,
+            8.0012,
+            8.2729
+          ]
+        },
+        {
+          "id": "test-13",
+          "split": "test",
+          "category": "exact",
+          "query": "远程办公每周最多申请几天？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "evidence_quotes": [
+            "每周最多申请 2 天"
+          ],
+          "ids": [
+            "remote_work:1",
+            "vpn:1",
+            "visitors:1"
+          ],
+          "scores": [
+            0.7261687,
+            0.59767869,
+            0.51476924
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            6.7662,
+            6.7028,
+            6.748,
+            6.6577,
+            6.9089
+          ]
+        },
+        {
+          "id": "test-14",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "一周有几天可以不来办公室、在家干活？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "evidence_quotes": [
+            "每周最多申请 2 天"
+          ],
+          "ids": [
+            "remote_work:1",
+            "meeting_rooms:1",
+            "overtime:1"
+          ],
+          "scores": [
+            0.55960397,
+            0.51441707,
+            0.49467381
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.9785,
+            7.8732,
+            7.744,
+            8.0932,
+            8.2767
+          ]
+        },
+        {
+          "id": "test-15",
+          "split": "test",
+          "category": "exact",
+          "query": "入职首日由谁发放工作电脑和临时账号？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "evidence_quotes": [
+            "IT 在首日发放工作电脑和临时账号"
+          ],
+          "ids": [
+            "onboarding:1",
+            "payroll:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            0.61968156,
+            0.53666502,
+            0.52493976
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.0017,
+            8.0053,
+            7.802,
+            7.9238,
+            7.8843
+          ]
+        },
+        {
+          "id": "test-16",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "新同事第一天来，办公机器和登录用的账户找谁领？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "evidence_quotes": [
+            "IT 在首日发放工作电脑和临时账号"
+          ],
+          "ids": [
+            "onboarding:1",
+            "asset_borrow:1",
+            "visitors:1"
+          ],
+          "scores": [
+            0.50530412,
+            0.48454205,
+            0.47498289
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.2526,
+            8.0755,
+            7.9489,
+            8.0631,
+            8.4281
+          ]
+        },
+        {
+          "id": "test-17",
+          "split": "test",
+          "category": "exact",
+          "query": "试用期届满前几天启动转正考核？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "evidence_quotes": [
+            "届满前 15 个自然日"
+          ],
+          "ids": [
+            "probation:1",
+            "onboarding:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            0.73115261,
+            0.54288075,
+            0.52799615
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            6.7734,
+            6.9042,
+            6.7253,
+            6.7233,
+            7.152
+          ]
+        },
+        {
+          "id": "test-18",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "成为正式员工之前，什么时候开始评估这段时间的表现？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "evidence_quotes": [
+            "届满前 15 个自然日"
+          ],
+          "ids": [
+            "onboarding:1",
+            "probation:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.58119667,
+            0.56606799,
+            0.54289841
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.5
+          },
+          "latencies_ms": [
+            9.103,
+            8.4682,
+            8.5295,
+            8.5074,
+            8.8317
+          ]
+        },
+        {
+          "id": "test-19",
+          "split": "test",
+          "category": "exact",
+          "query": "离职员工的工作账号何时停用？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "evidence_quotes": [
+            "最后工作日结束时停用工作账号"
+          ],
+          "ids": [
+            "offboarding:1",
+            "asset_borrow:1",
+            "password:1"
+          ],
+          "scores": [
+            0.6347657,
+            0.56722631,
+            0.55128275
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.1681,
+            7.5659,
+            7.205,
+            7.3385,
+            7.2992
+          ]
+        },
+        {
+          "id": "test-20",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "人走了之后，他的系统登录权限什么时候收回？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "evidence_quotes": [
+            "最后工作日结束时停用工作账号"
+          ],
+          "ids": [
+            "offboarding:1",
+            "asset_borrow:1",
+            "archive:1"
+          ],
+          "scores": [
+            0.49893092,
+            0.48808636,
+            0.48665733
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.9387,
+            7.8465,
+            7.9605,
+            8.0504,
+            8.7167
+          ]
+        },
+        {
+          "id": "test-21",
+          "split": "test",
+          "category": "exact",
+          "query": "公司每月几号发放上月工资？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "evidence_quotes": [
+            "每月 15 日发放上月工资"
+          ],
+          "ids": [
+            "payroll:1",
+            "asset_borrow:1",
+            "leave:1"
+          ],
+          "scores": [
+            0.66911612,
+            0.53500443,
+            0.53107958
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            6.6634,
+            6.9102,
+            6.7618,
+            6.6811,
+            6.9821
+          ]
+        },
+        {
+          "id": "test-22",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "每个月哪天钱会打到员工卡上？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "evidence_quotes": [
+            "每月 15 日发放上月工资"
+          ],
+          "ids": [
+            "attendance:1",
+            "payroll:1",
+            "onboarding:1"
+          ],
+          "scores": [
+            0.63357803,
+            0.60509183,
+            0.54495063
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.5
+          },
+          "latencies_ms": [
+            7.1569,
+            7.2783,
+            7.1564,
+            7.5535,
+            7.2912
+          ]
+        },
+        {
+          "id": "test-23",
+          "split": "test",
+          "category": "exact",
+          "query": "外部培训完成后报销比例与年度上限是多少？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "evidence_quotes": [
+            "审批费用的 80%"
+          ],
+          "ids": [
+            "training:1",
+            "equipment_repair:1",
+            "meal_entertainment:1"
+          ],
+          "scores": [
+            0.71392886,
+            0.46679917,
+            0.45790981
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.9438,
+            7.9515,
+            8.4285,
+            8.0205,
+            8.1043
+          ]
+        },
+        {
+          "id": "test-24",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "自己去外面上完课程拿到结业证，公司能承担多少学费？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "evidence_quotes": [
+            "审批费用的 80%"
+          ],
+          "ids": [
+            "training:1",
+            "payroll:1",
+            "attendance:1"
+          ],
+          "scores": [
+            0.64161449,
+            0.4621138,
+            0.45471191
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            9.1028,
+            8.5432,
+            8.5674,
+            8.5375,
+            9.0916
+          ]
+        },
+        {
+          "id": "test-25",
+          "split": "test",
+          "category": "exact",
+          "query": "单笔采购6000元需要哪些人审批？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "evidence_quotes": [
+            "增加财务负责人审批"
+          ],
+          "ids": [
+            "procurement:1",
+            "purchase_approval:1",
+            "meal_entertainment:1"
+          ],
+          "scores": [
+            0.67893976,
+            0.57214486,
+            0.50902793
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.2102,
+            7.1872,
+            7.1959,
+            7.1793,
+            7.9139
+          ]
+        },
+        {
+          "id": "test-26",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "给团队买六千块的东西，除了部门领导还得谁签字？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "evidence_quotes": [
+            "增加财务负责人审批"
+          ],
+          "ids": [
+            "procurement:1",
+            "meal_entertainment:1",
+            "onboarding:1"
+          ],
+          "scores": [
+            0.46381756,
+            0.41675453,
+            0.41305416
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.0146,
+            8.423,
+            8.0839,
+            8.014,
+            8.2295
+          ]
+        },
+        {
+          "id": "test-27",
+          "split": "test",
+          "category": "exact",
+          "query": "因公借用工作电脑最长多少天？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "evidence_quotes": [
+            "最长 30 个自然日"
+          ],
+          "ids": [
+            "asset_borrow:1",
+            "remote_work:1",
+            "equipment_repair:1"
+          ],
+          "scores": [
+            0.64066417,
+            0.5290657,
+            0.51255522
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.1982,
+            7.2703,
+            7.2664,
+            7.2457,
+            7.4018
+          ]
+        },
+        {
+          "id": "test-28",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "把单位的笔记本带出去办事，最多多久得还回来？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "evidence_quotes": [
+            "最长 30 个自然日"
+          ],
+          "ids": [
+            "asset_borrow:1",
+            "archive:1",
+            "equipment_repair:1"
+          ],
+          "scores": [
+            0.5818527,
+            0.50652751,
+            0.49317966
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.3546,
+            8.5888,
+            8.3886,
+            9.5181,
+            8.4336
+          ]
+        },
+        {
+          "id": "test-29",
+          "split": "test",
+          "category": "exact",
+          "query": "VPN临时权限的最长有效期是多少？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "evidence_quotes": [
+            "有效期最长 7 天"
+          ],
+          "ids": [
+            "vpn:1",
+            "asset_borrow:1",
+            "remote_work:1"
+          ],
+          "scores": [
+            0.53520242,
+            0.46342542,
+            0.45917723
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.0843,
+            6.8743,
+            6.8512,
+            6.7583,
+            6.8571
+          ]
+        },
+        {
+          "id": "test-30",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "在家连接单位内网的临时通道，开一次能用多久？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "evidence_quotes": [
+            "有效期最长 7 天"
+          ],
+          "ids": [
+            "vpn:1",
+            "remote_work:1",
+            "attendance:1"
+          ],
+          "scores": [
+            0.59038067,
+            0.51405601,
+            0.4819195
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.4745,
+            8.5639,
+            8.5334,
+            8.3686,
+            8.4913
+          ]
+        },
+        {
+          "id": "test-31",
+          "split": "test",
+          "category": "exact",
+          "query": "公司账号密码最少几位且包含哪些字符？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "evidence_quotes": [
+            "长度至少 12 位"
+          ],
+          "ids": [
+            "password:1",
+            "security:1",
+            "business_cards:1"
+          ],
+          "scores": [
+            0.68351723,
+            0.51686916,
+            0.47185989
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.2414,
+            7.8137,
+            8.1158,
+            7.8035,
+            7.8544
+          ]
+        },
+        {
+          "id": "test-32",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "登录口令最短要设多长，纯数字行不行？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "evidence_quotes": [
+            "长度至少 12 位"
+          ],
+          "ids": [
+            "password:1",
+            "data_export:1",
+            "vpn:1"
+          ],
+          "scores": [
+            0.61333034,
+            0.5056586,
+            0.47780742
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.9762,
+            7.925,
+            7.8254,
+            7.9154,
+            8.5015
+          ]
+        },
+        {
+          "id": "test-33",
+          "split": "test",
+          "category": "exact",
+          "query": "导出客户名单需要谁共同批准？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "evidence_quotes": [
+            "数据所属部门负责人及信息安全负责人共同批准"
+          ],
+          "ids": [
+            "data_export:1",
+            "meal_entertainment:1",
+            "business_cards:1"
+          ],
+          "scores": [
+            0.62804015,
+            0.58167466,
+            0.54572744
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.5009,
+            7.2463,
+            7.1155,
+            7.383,
+            7.3791
+          ]
+        },
+        {
+          "id": "test-34",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "想把客户通讯录从系统里拉出来，要找哪两方签字？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "evidence_quotes": [
+            "数据所属部门负责人及信息安全负责人共同批准"
+          ],
+          "ids": [
+            "data_export:1",
+            "password:1",
+            "visitors:1"
+          ],
+          "scores": [
+            0.50278631,
+            0.45640088,
+            0.44833673
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.9518,
+            8.0761,
+            8.015,
+            8.0249,
+            8.14
+          ]
+        },
+        {
+          "id": "test-35",
+          "split": "test",
+          "category": "exact",
+          "query": "客户开票申请需要核对哪些字段？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "evidence_quotes": [
+            "对应订单编号"
+          ],
+          "ids": [
+            "invoices:1",
+            "meal_entertainment:1",
+            "procurement:1"
+          ],
+          "scores": [
+            0.69393014,
+            0.56531747,
+            0.53571391
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.1185,
+            6.8615,
+            6.823,
+            6.8679,
+            6.8531
+          ]
+        },
+        {
+          "id": "test-36",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "给客户开票时，抬头和税号之外还要准备哪些信息？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "evidence_quotes": [
+            "对应订单编号"
+          ],
+          "ids": [
+            "invoices:1",
+            "meal_entertainment:1",
+            "suppliers:1"
+          ],
+          "scores": [
+            0.57096797,
+            0.48989684,
+            0.4673229
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.9318,
+            7.9685,
+            7.9463,
+            8.1363,
+            8.2761
+          ]
+        },
+        {
+          "id": "test-37",
+          "split": "test",
+          "category": "exact",
+          "query": "财务批准退款后几个工作日内到账？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "evidence_quotes": [
+            "7 个工作日"
+          ],
+          "ids": [
+            "refunds:1",
+            "archive:1",
+            "collections:1"
+          ],
+          "scores": [
+            0.62492345,
+            0.5612847,
+            0.55275803
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.329,
+            7.2453,
+            7.2086,
+            7.3649,
+            7.4187
+          ]
+        },
+        {
+          "id": "test-38",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "客户要求退钱，审批走完后要等多久才能退回去？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "evidence_quotes": [
+            "7 个工作日"
+          ],
+          "ids": [
+            "refunds:1",
+            "collections:1",
+            "customer_complaints:1"
+          ],
+          "scores": [
+            0.66255327,
+            0.57675918,
+            0.53810173
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.5385,
+            8.6475,
+            8.4358,
+            8.4647,
+            8.5588
+          ]
+        },
+        {
+          "id": "test-39",
+          "split": "test",
+          "category": "exact",
+          "query": "客户业务招待的人均餐费上限是多少？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "evidence_quotes": [
+            "人均餐费上限为 200 元"
+          ],
+          "ids": [
+            "meal_entertainment:1",
+            "reimbursement:1",
+            "visitors:1"
+          ],
+          "scores": [
+            0.74171993,
+            0.5356746,
+            0.46893422
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.3078,
+            7.3288,
+            7.3157,
+            7.2938,
+            8.0534
+          ]
+        },
+        {
+          "id": "test-40",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "请客户吃饭，平均每个人能花多少钱？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "evidence_quotes": [
+            "人均餐费上限为 200 元"
+          ],
+          "ids": [
+            "meal_entertainment:1",
+            "reimbursement:1",
+            "procurement:1"
+          ],
+          "scores": [
+            0.60986593,
+            0.48195988,
+            0.40553021
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.4073,
+            7.539,
+            7.3818,
+            7.5006,
+            8.6019
+          ]
+        },
+        {
+          "id": "test-41",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司今年有多少名员工？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "business_cards:1",
+            "payroll:1",
+            "leave:1"
+          ],
+          "scores": [
+            0.4914276,
+            0.47621702,
+            0.45203587
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.1467,
+            6.3052,
+            6.2319,
+            6.075,
+            6.9368
+          ]
+        },
+        {
+          "id": "test-42",
+          "split": "test",
+          "category": "no_answer",
+          "query": "年度体检费用能报销多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "training:1",
+            "reimbursement:1",
+            "meal_entertainment:1"
+          ],
+          "scores": [
+            0.5529099,
+            0.51483516,
+            0.50132114
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.7904,
+            6.8249,
+            6.713,
+            6.7439,
+            6.6721
+          ]
+        },
+        {
+          "id": "test-43",
+          "split": "test",
+          "category": "no_answer",
+          "query": "生育假有多少天？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ],
+          "scores": [
+            0.55969952,
+            0.48324033,
+            0.47455959
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.1087,
+            5.977,
+            6.0769,
+            6.1326,
+            6.0713
+          ]
+        },
+        {
+          "id": "test-44",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司明年会给员工涨薪多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "payroll:1",
+            "leave:1",
+            "annual_bonus:1"
+          ],
+          "scores": [
+            0.62659003,
+            0.54278086,
+            0.52661963
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.6283,
+            6.7744,
+            6.8485,
+            6.8041,
+            6.7451
+          ]
+        },
+        {
+          "id": "test-45",
+          "split": "test",
+          "category": "no_answer",
+          "query": "明天青岛会下雨吗？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "taxi:1",
+            "business_trip_booking:1",
+            "customer_complaints:1"
+          ],
+          "scores": [
+            0.30089854,
+            0.27083264,
+            0.26461342
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.2195,
+            6.1061,
+            6.1941,
+            6.1822,
+            6.1021
+          ]
+        },
+        {
+          "id": "test-46",
+          "split": "test",
+          "category": "no_answer",
+          "query": "员工商业医疗保险的保额是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "payroll:1",
+            "meal_entertainment:1",
+            "procurement:1"
+          ],
+          "scores": [
+            0.43736189,
+            0.42464622,
+            0.41476496
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.7357,
+            6.8927,
+            6.8543,
+            6.8684,
+            7.0299
+          ]
+        },
+        {
+          "id": "test-47",
+          "split": "test",
+          "category": "no_answer",
+          "query": "明年春节统一放假日期是哪几天？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ],
+          "scores": [
+            0.53277015,
+            0.47759922,
+            0.44447053
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.8896,
+            6.8682,
+            6.9542,
+            6.7426,
+            6.9231
+          ]
+        },
+        {
+          "id": "test-48",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司首席执行官的私人手机号码是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "business_cards:1",
+            "password:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            0.48879216,
+            0.48732619,
+            0.46207946
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            8.0057,
+            7.8543,
+            7.8224,
+            7.8948,
+            9.1836
+          ]
+        },
+        {
+          "id": "test-49",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司上一财年的营业收入是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "annual_bonus:1",
+            "payroll:1",
+            "suppliers:1"
+          ],
+          "scores": [
+            0.46136283,
+            0.46103079,
+            0.42292803
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.7459,
+            6.7763,
+            6.7786,
+            6.7519,
+            7.3016
+          ]
+        },
+        {
+          "id": "test-50",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司为员工提供住房贷款的利率是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "payroll:1",
+            "asset_borrow:1",
+            "suppliers:1"
+          ],
+          "scores": [
+            0.4946695,
+            0.47300446,
+            0.43955154
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            8.3007,
+            7.9278,
+            7.7778,
+            7.7914,
+            7.9523
+          ]
+        }
+      ]
+    },
+    "hybrid": {
+      "summary": {
+        "answerable": {
+          "count": 40,
+          "p50_ms": 7.962,
+          "p95_ms": 8.882,
+          "hit_at_1": 0.75,
+          "recall_at_3": 0.875,
+          "mrr_at_3": 0.8
+        },
+        "exact": {
+          "count": 20,
+          "p50_ms": 7.473,
+          "p95_ms": 8.391,
+          "hit_at_1": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0
+        },
+        "paraphrase": {
+          "count": 20,
+          "p50_ms": 8.302,
+          "p95_ms": 8.918,
+          "hit_at_1": 0.5,
+          "recall_at_3": 0.75,
+          "mrr_at_3": 0.6
+        },
+        "no_answer": {
+          "count": 10,
+          "p50_ms": 6.937,
+          "p95_ms": 8.182,
+          "returned_candidates_rate": 1.0
+        }
+      },
+      "cases": [
+        {
+          "id": "test-01",
+          "split": "test",
+          "category": "exact",
+          "query": "一线城市出差住宿报销标准是多少？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "evidence_quotes": [
+            "一线城市每晚不超过 600 元"
+          ],
+          "ids": [
+            "reimbursement:1",
+            "taxi:1",
+            "business_trip_booking:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03200205,
+            0.03175403
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.5373,
+            7.4795,
+            7.5662,
+            7.7005,
+            7.4166
+          ]
+        },
+        {
+          "id": "test-02",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "住酒店最多能报多少钱？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "evidence_quotes": [
+            "一线城市每晚不超过 600 元"
+          ],
+          "ids": [
+            "business_trip_booking:1",
+            "attendance:1",
+            "reimbursement:1"
+          ],
+          "scores": [
+            0.03252247,
+            0.03105441,
+            0.01639344
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.3333333333333333
+          },
+          "latencies_ms": [
+            6.3128,
+            6.3108,
+            6.2255,
+            6.4781,
+            6.2049
+          ]
+        },
+        {
+          "id": "test-03",
+          "split": "test",
+          "category": "exact",
+          "query": "订单逾期超过15天应该通知谁？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "evidence_quotes": [
+            "逾期超过 15 天，应通知销售负责人"
+          ],
+          "ids": [
+            "collections:1",
+            "purchase_approval:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.02919864
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            9.0481,
+            7.3456,
+            7.4421,
+            7.5907,
+            7.535
+          ]
+        },
+        {
+          "id": "test-04",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "客户欠款拖了半个月，接下来该找谁处理？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "evidence_quotes": [
+            "逾期超过 15 天，应通知销售负责人"
+          ],
+          "ids": [
+            "collections:1",
+            "customer_complaints:1",
+            "refunds:1"
+          ],
+          "scores": [
+            0.03252247,
+            0.03252247,
+            0.03174603
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.5207,
+            7.7734,
+            7.555,
+            7.8597,
+            7.8211
+          ]
+        },
+        {
+          "id": "test-05",
+          "split": "test",
+          "category": "exact",
+          "query": "API密钥应该保存在什么地方？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "evidence_quotes": [
+            "不得写入前端代码"
+          ],
+          "ids": [
+            "security:1",
+            "data_export:1",
+            "password:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03175403,
+            0.01612903
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            6.8487,
+            7.2192,
+            6.8934,
+            6.8717,
+            6.86
+          ]
+        },
+        {
+          "id": "test-06",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "接入模型那串凭证可以直接写到网页代码里吗？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "evidence_quotes": [
+            "不得写入前端代码"
+          ],
+          "ids": [
+            "vpn:1",
+            "archive:1",
+            "security:1"
+          ],
+          "scores": [
+            0.03252247,
+            0.03200205,
+            0.03100962
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.3333333333333333
+          },
+          "latencies_ms": [
+            8.3043,
+            8.2443,
+            8.1383,
+            8.1345,
+            8.2885
+          ]
+        },
+        {
+          "id": "test-07",
+          "split": "test",
+          "category": "exact",
+          "query": "连续休年假5天需要提前多久申请？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "evidence_quotes": [
+            "提前 10 个工作日"
+          ],
+          "ids": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03125763,
+            0.03083491
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.7323,
+            7.4757,
+            7.4748,
+            7.4521,
+            8.1761
+          ]
+        },
+        {
+          "id": "test-08",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "想连着休息一整周，最晚什么时候向领导打招呼？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "evidence_quotes": [
+            "提前 10 个工作日"
+          ],
+          "ids": [
+            "overtime:1",
+            "onboarding:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.01639344,
+            0.01612903,
+            0.01587302
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            8.6602,
+            8.6667,
+            8.5989,
+            8.7755,
+            8.8465
+          ]
+        },
+        {
+          "id": "test-09",
+          "split": "test",
+          "category": "exact",
+          "query": "周末加班调休的有效期是多久？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "evidence_quotes": [
+            "90 个自然日"
+          ],
+          "ids": [
+            "overtime:1",
+            "taxi:1",
+            "leave:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.02967033,
+            0.01612903
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.2942,
+            7.875,
+            7.3739,
+            7.377,
+            7.3675
+          ]
+        },
+        {
+          "id": "test-10",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "周六多干的工时换成休息，能留着用到什么时候？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "evidence_quotes": [
+            "90 个自然日"
+          ],
+          "ids": [
+            "overtime:1",
+            "payroll:1",
+            "attendance:1"
+          ],
+          "scores": [
+            0.03252247,
+            0.03226646,
+            0.01612903
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.7647,
+            8.6332,
+            8.7618,
+            8.7608,
+            8.8018
+          ]
+        },
+        {
+          "id": "test-11",
+          "split": "test",
+          "category": "exact",
+          "query": "漏打卡后几个工作日内申请补卡？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "evidence_quotes": [
+            "3 个工作日"
+          ],
+          "ids": [
+            "attendance:1",
+            "leave:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03225806,
+            0.03100962
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.0248,
+            7.0562,
+            6.9616,
+            7.0394,
+            7.115
+          ]
+        },
+        {
+          "id": "test-12",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "早上到了公司忘了刷考勤，过多久就不能补了？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "evidence_quotes": [
+            "3 个工作日"
+          ],
+          "ids": [
+            "attendance:1",
+            "asset_borrow:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03053613,
+            0.03007689
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.6863,
+            8.2538,
+            8.2207,
+            8.2546,
+            8.2722
+          ]
+        },
+        {
+          "id": "test-13",
+          "split": "test",
+          "category": "exact",
+          "query": "远程办公每周最多申请几天？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "evidence_quotes": [
+            "每周最多申请 2 天"
+          ],
+          "ids": [
+            "remote_work:1",
+            "vpn:1",
+            "visitors:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03225806,
+            0.0305789
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.707,
+            6.9397,
+            7.0542,
+            6.9261,
+            7.1606
+          ]
+        },
+        {
+          "id": "test-14",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "一周有几天可以不来办公室、在家干活？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "evidence_quotes": [
+            "每周最多申请 2 天"
+          ],
+          "ids": [
+            "meeting_rooms:1",
+            "remote_work:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            0.03252247,
+            0.03252247,
+            0.03055037
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.5
+          },
+          "latencies_ms": [
+            8.1171,
+            8.1279,
+            8.1323,
+            8.1031,
+            8.041
+          ]
+        },
+        {
+          "id": "test-15",
+          "split": "test",
+          "category": "exact",
+          "query": "入职首日由谁发放工作电脑和临时账号？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "evidence_quotes": [
+            "IT 在首日发放工作电脑和临时账号"
+          ],
+          "ids": [
+            "onboarding:1",
+            "asset_borrow:1",
+            "payroll:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03200205,
+            0.03151365
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.1143,
+            8.3911,
+            8.0499,
+            8.1238,
+            8.7421
+          ]
+        },
+        {
+          "id": "test-16",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "新同事第一天来，办公机器和登录用的账户找谁领？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "evidence_quotes": [
+            "IT 在首日发放工作电脑和临时账号"
+          ],
+          "ids": [
+            "asset_borrow:1",
+            "password:1",
+            "remote_work:1"
+          ],
+          "scores": [
+            0.03105441,
+            0.03102453,
+            0.03076923
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            8.3545,
+            8.3233,
+            8.3,
+            8.3656,
+            8.8523
+          ]
+        },
+        {
+          "id": "test-17",
+          "split": "test",
+          "category": "exact",
+          "query": "试用期届满前几天启动转正考核？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "evidence_quotes": [
+            "届满前 15 个自然日"
+          ],
+          "ids": [
+            "probation:1",
+            "asset_borrow:1",
+            "onboarding:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03200205,
+            0.01612903
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.0339,
+            6.9144,
+            6.9637,
+            7.0138,
+            6.9542
+          ]
+        },
+        {
+          "id": "test-18",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "成为正式员工之前，什么时候开始评估这段时间的表现？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "evidence_quotes": [
+            "届满前 15 个自然日"
+          ],
+          "ids": [
+            "leave:1",
+            "onboarding:1",
+            "suppliers:1"
+          ],
+          "scores": [
+            0.03154496,
+            0.0308862,
+            0.03077652
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            8.8853,
+            8.8817,
+            8.7935,
+            8.8279,
+            9.1022
+          ]
+        },
+        {
+          "id": "test-19",
+          "split": "test",
+          "category": "exact",
+          "query": "离职员工的工作账号何时停用？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "evidence_quotes": [
+            "最后工作日结束时停用工作账号"
+          ],
+          "ids": [
+            "offboarding:1",
+            "vpn:1",
+            "password:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.03125763
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.537,
+            7.469,
+            7.5088,
+            7.3388,
+            7.5051
+          ]
+        },
+        {
+          "id": "test-20",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "人走了之后，他的系统登录权限什么时候收回？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "evidence_quotes": [
+            "最后工作日结束时停用工作账号"
+          ],
+          "ids": [
+            "offboarding:1",
+            "vpn:1",
+            "password:1"
+          ],
+          "scores": [
+            0.03226646,
+            0.03125,
+            0.03083491
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.1487,
+            8.2217,
+            8.1865,
+            8.2891,
+            8.2937
+          ]
+        },
+        {
+          "id": "test-21",
+          "split": "test",
+          "category": "exact",
+          "query": "公司每月几号发放上月工资？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "evidence_quotes": [
+            "每月 15 日发放上月工资"
+          ],
+          "ids": [
+            "payroll:1",
+            "annual_bonus:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.03083491
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.3433,
+            6.8849,
+            6.944,
+            6.9872,
+            7.3363
+          ]
+        },
+        {
+          "id": "test-22",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "每个月哪天钱会打到员工卡上？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "evidence_quotes": [
+            "每月 15 日发放上月工资"
+          ],
+          "ids": [
+            "onboarding:1",
+            "attendance:1",
+            "business_cards:1"
+          ],
+          "scores": [
+            0.03226646,
+            0.03109932,
+            0.03102453
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            7.467,
+            7.4197,
+            7.4442,
+            7.6053,
+            7.7199
+          ]
+        },
+        {
+          "id": "test-23",
+          "split": "test",
+          "category": "exact",
+          "query": "外部培训完成后报销比例与年度上限是多少？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "evidence_quotes": [
+            "审批费用的 80%"
+          ],
+          "ids": [
+            "training:1",
+            "meal_entertainment:1",
+            "procurement:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03102453,
+            0.03077652
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.0535,
+            8.0193,
+            8.2335,
+            8.1099,
+            8.0543
+          ]
+        },
+        {
+          "id": "test-24",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "自己去外面上完课程拿到结业证，公司能承担多少学费？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "evidence_quotes": [
+            "审批费用的 80%"
+          ],
+          "ids": [
+            "training:1",
+            "payroll:1",
+            "reimbursement:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.02943723
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.9176,
+            8.8623,
+            8.7875,
+            8.8412,
+            8.7466
+          ]
+        },
+        {
+          "id": "test-25",
+          "split": "test",
+          "category": "exact",
+          "query": "单笔采购6000元需要哪些人审批？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "evidence_quotes": [
+            "增加财务负责人审批"
+          ],
+          "ids": [
+            "procurement:1",
+            "purchase_approval:1",
+            "meal_entertainment:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03225806,
+            0.03149802
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.9472,
+            7.3985,
+            7.5662,
+            7.5316,
+            7.9902
+          ]
+        },
+        {
+          "id": "test-26",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "给团队买六千块的东西，除了部门领导还得谁签字？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "evidence_quotes": [
+            "增加财务负责人审批"
+          ],
+          "ids": [
+            "contracts:1",
+            "procurement:1",
+            "offboarding:1"
+          ],
+          "scores": [
+            0.03201844,
+            0.03177806,
+            0.03105441
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.5
+          },
+          "latencies_ms": [
+            8.3605,
+            8.3005,
+            8.2342,
+            8.431,
+            8.2801
+          ]
+        },
+        {
+          "id": "test-27",
+          "split": "test",
+          "category": "exact",
+          "query": "因公借用工作电脑最长多少天？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "evidence_quotes": [
+            "最长 30 个自然日"
+          ],
+          "ids": [
+            "asset_borrow:1",
+            "remote_work:1",
+            "equipment_repair:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.03102453
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.4429,
+            7.6913,
+            7.4024,
+            7.5326,
+            7.8349
+          ]
+        },
+        {
+          "id": "test-28",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "把单位的笔记本带出去办事，最多多久得还回来？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "evidence_quotes": [
+            "最长 30 个自然日"
+          ],
+          "ids": [
+            "attendance:1",
+            "remote_work:1",
+            "asset_borrow:1"
+          ],
+          "scores": [
+            0.03131882,
+            0.03083491,
+            0.01639344
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 0.3333333333333333
+          },
+          "latencies_ms": [
+            8.8334,
+            9.1451,
+            8.6119,
+            8.7178,
+            9.3712
+          ]
+        },
+        {
+          "id": "test-29",
+          "split": "test",
+          "category": "exact",
+          "query": "VPN临时权限的最长有效期是多少？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "evidence_quotes": [
+            "有效期最长 7 天"
+          ],
+          "ids": [
+            "vpn:1",
+            "asset_borrow:1",
+            "offboarding:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.03128055
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            6.9617,
+            7.1325,
+            6.9285,
+            7.0175,
+            9.6967
+          ]
+        },
+        {
+          "id": "test-30",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "在家连接单位内网的临时通道，开一次能用多久？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "evidence_quotes": [
+            "有效期最长 7 天"
+          ],
+          "ids": [
+            "vpn:1",
+            "visitors:1",
+            "onboarding:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.02967033
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.7251,
+            8.5835,
+            8.749,
+            8.5797,
+            8.69
+          ]
+        },
+        {
+          "id": "test-31",
+          "split": "test",
+          "category": "exact",
+          "query": "公司账号密码最少几位且包含哪些字符？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "evidence_quotes": [
+            "长度至少 12 位"
+          ],
+          "ids": [
+            "password:1",
+            "business_cards:1",
+            "vpn:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03200205,
+            0.03102453
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.0415,
+            8.2639,
+            8.1989,
+            8.1758,
+            8.2669
+          ]
+        },
+        {
+          "id": "test-32",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "登录口令最短要设多长，纯数字行不行？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "evidence_quotes": [
+            "长度至少 12 位"
+          ],
+          "ids": [
+            "password:1",
+            "onboarding:1",
+            "data_export:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.01612903
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.0626,
+            7.9133,
+            7.9278,
+            7.8942,
+            7.999
+          ]
+        },
+        {
+          "id": "test-33",
+          "split": "test",
+          "category": "exact",
+          "query": "导出客户名单需要谁共同批准？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "evidence_quotes": [
+            "数据所属部门负责人及信息安全负责人共同批准"
+          ],
+          "ids": [
+            "data_export:1",
+            "meal_entertainment:1",
+            "business_cards:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03175403,
+            0.03125763
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.4957,
+            7.4719,
+            7.4302,
+            7.3248,
+            7.9766
+          ]
+        },
+        {
+          "id": "test-34",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "想把客户通讯录从系统里拉出来，要找哪两方签字？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "evidence_quotes": [
+            "数据所属部门负责人及信息安全负责人共同批准"
+          ],
+          "ids": [
+            "offboarding:1",
+            "contracts:1",
+            "password:1"
+          ],
+          "scores": [
+            0.03109932,
+            0.03102453,
+            0.03062179
+          ],
+          "metrics": {
+            "hit_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "mrr_at_3": 0.0
+          },
+          "latencies_ms": [
+            8.4364,
+            8.3764,
+            8.2226,
+            8.3035,
+            8.6067
+          ]
+        },
+        {
+          "id": "test-35",
+          "split": "test",
+          "category": "exact",
+          "query": "客户开票申请需要核对哪些字段？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "evidence_quotes": [
+            "对应订单编号"
+          ],
+          "ids": [
+            "invoices:1",
+            "data_export:1",
+            "meal_entertainment:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03175403,
+            0.03128055
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.17,
+            6.9969,
+            7.065,
+            7.0084,
+            7.0631
+          ]
+        },
+        {
+          "id": "test-36",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "给客户开票时，抬头和税号之外还要准备哪些信息？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "evidence_quotes": [
+            "对应订单编号"
+          ],
+          "ids": [
+            "invoices:1",
+            "meal_entertainment:1",
+            "collections:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.03105441
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.2661,
+            8.2233,
+            8.4173,
+            8.2726,
+            8.9055
+          ]
+        },
+        {
+          "id": "test-37",
+          "split": "test",
+          "category": "exact",
+          "query": "财务批准退款后几个工作日内到账？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "evidence_quotes": [
+            "7 个工作日"
+          ],
+          "ids": [
+            "refunds:1",
+            "archive:1",
+            "invoices:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03151365,
+            0.03125763
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.786,
+            7.423,
+            7.5425,
+            7.6827,
+            7.8285
+          ]
+        },
+        {
+          "id": "test-38",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "客户要求退钱，审批走完后要等多久才能退回去？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "evidence_quotes": [
+            "7 个工作日"
+          ],
+          "ids": [
+            "refunds:1",
+            "collections:1",
+            "meal_entertainment:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03200205,
+            0.03175403
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.6759,
+            8.6525,
+            8.9701,
+            8.6881,
+            8.7223
+          ]
+        },
+        {
+          "id": "test-39",
+          "split": "test",
+          "category": "exact",
+          "query": "客户业务招待的人均餐费上限是多少？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "evidence_quotes": [
+            "人均餐费上限为 200 元"
+          ],
+          "ids": [
+            "meal_entertainment:1",
+            "business_trip_booking:1",
+            "training:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03055037,
+            0.03053613
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            8.4156,
+            7.6502,
+            8.402,
+            7.5282,
+            7.6747
+          ]
+        },
+        {
+          "id": "test-40",
+          "split": "test",
+          "category": "paraphrase",
+          "query": "请客户吃饭，平均每个人能花多少钱？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "evidence_quotes": [
+            "人均餐费上限为 200 元"
+          ],
+          "ids": [
+            "meal_entertainment:1",
+            "customer_complaints:1",
+            "collections:1"
+          ],
+          "scores": [
+            0.03177806,
+            0.03011775,
+            0.0298574
+          ],
+          "metrics": {
+            "hit_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "mrr_at_3": 1.0
+          },
+          "latencies_ms": [
+            7.596,
+            7.6325,
+            7.4581,
+            7.6769,
+            9.448
+          ]
+        },
+        {
+          "id": "test-41",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司今年有多少名员工？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "business_cards:1",
+            "payroll:1",
+            "annual_bonus:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03175403,
+            0.03076923
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.2551,
+            6.2655,
+            6.37,
+            6.377,
+            6.6631
+          ]
+        },
+        {
+          "id": "test-42",
+          "split": "test",
+          "category": "no_answer",
+          "query": "年度体检费用能报销多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "training:1",
+            "reimbursement:1",
+            "annual_bonus:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03175403,
+            0.03151365
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.9076,
+            6.7419,
+            6.7373,
+            6.953,
+            7.0458
+          ]
+        },
+        {
+          "id": "test-43",
+          "split": "test",
+          "category": "no_answer",
+          "query": "生育假有多少天？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ],
+          "scores": [
+            0.01639344,
+            0.01612903,
+            0.01587302
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.657,
+            6.0922,
+            6.2074,
+            6.0741,
+            6.7455
+          ]
+        },
+        {
+          "id": "test-44",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司明年会给员工涨薪多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "payroll:1",
+            "annual_bonus:1",
+            "onboarding:1"
+          ],
+          "scores": [
+            0.03201844,
+            0.03125763,
+            0.03033088
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            7.6154,
+            7.0706,
+            6.9489,
+            6.8554,
+            7.4439
+          ]
+        },
+        {
+          "id": "test-45",
+          "split": "test",
+          "category": "no_answer",
+          "query": "明天青岛会下雨吗？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "taxi:1",
+            "business_trip_booking:1",
+            "customer_complaints:1"
+          ],
+          "scores": [
+            0.01639344,
+            0.01612903,
+            0.01587302
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.235,
+            6.5822,
+            6.3362,
+            6.4671,
+            6.4352
+          ]
+        },
+        {
+          "id": "test-46",
+          "split": "test",
+          "category": "no_answer",
+          "query": "员工商业医疗保险的保额是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "suppliers:1",
+            "onboarding:1",
+            "business_cards:1"
+          ],
+          "scores": [
+            0.03154496,
+            0.03151365,
+            0.03033088
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            7.0271,
+            7.17,
+            6.9219,
+            7.0596,
+            7.2423
+          ]
+        },
+        {
+          "id": "test-47",
+          "split": "test",
+          "category": "no_answer",
+          "query": "明年春节统一放假日期是哪几天？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "payroll:1",
+            "overtime:1",
+            "archive:1"
+          ],
+          "scores": [
+            0.03225806,
+            0.03149802,
+            0.02987737
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            7.1031,
+            6.9616,
+            7.1075,
+            6.8921,
+            6.8795
+          ]
+        },
+        {
+          "id": "test-48",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司首席执行官的私人手机号码是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "business_cards:1",
+            "asset_borrow:1",
+            "password:1"
+          ],
+          "scores": [
+            0.03226646,
+            0.03102453,
+            0.03083491
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            8.037,
+            8.007,
+            8.0419,
+            8.182,
+            8.3969
+          ]
+        },
+        {
+          "id": "test-49",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司上一财年的营业收入是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "suppliers:1",
+            "payroll:1",
+            "annual_bonus:1"
+          ],
+          "scores": [
+            0.03226646,
+            0.03151365,
+            0.03109932
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            6.9769,
+            6.9088,
+            7.0597,
+            6.878,
+            6.926
+          ]
+        },
+        {
+          "id": "test-50",
+          "split": "test",
+          "category": "no_answer",
+          "query": "公司为员工提供住房贷款的利率是多少？",
+          "relevant_ids": [],
+          "evidence_quotes": [],
+          "ids": [
+            "payroll:1",
+            "asset_borrow:1",
+            "suppliers:1"
+          ],
+          "scores": [
+            0.03278689,
+            0.03128055,
+            0.03079839
+          ],
+          "metrics": {},
+          "latencies_ms": [
+            8.319,
+            8.0717,
+            7.9844,
+            8.1707,
+            8.1761
+          ]
+        }
+      ]
+    }
+  }
+}
