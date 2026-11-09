@@ -53,8 +53,11 @@ def tool_definitions() -> list[dict]:
 
 
 class ToolRegistry:
-    def __init__(self, index: DocumentIndex, orders: OrderStore):
+    def __init__(
+        self, index: DocumentIndex, orders: OrderStore, *, min_dense_score: float | None = None
+    ):
         self.index, self.orders = index, orders
+        self.min_dense_score = min_dense_score if index.mode != "bm25" else None
 
     def execute(self, name: str, raw_arguments: str) -> tuple[dict, dict]:
         if name not in ARGUMENT_MODELS:
@@ -67,12 +70,15 @@ class ToolRegistry:
             return {}, {"error": "invalid_arguments", "message": "参数必须符合工具 JSON schema"}
         arguments = args.model_dump()
         if name == "search_documents":
-            matches = self.index.search(**arguments)
-            return arguments, {
+            matches = self.index.search(**arguments, min_dense_score=self.min_dense_score)
+            result = {
                 "retrieval_mode": self.index.mode,
                 "score_kind": {"bm25": "bm25", "dense": "cosine", "hybrid": "rrf"}[self.index.mode],
                 "matches": [match.model_dump() for match in matches],
             }
+            if self.min_dense_score is not None:
+                result["min_dense_score"] = self.min_dense_score
+            return arguments, result
         return arguments, self.orders.query(**arguments)
 
     def invoke(self, name: str, arguments: dict) -> tuple[dict, dict]:

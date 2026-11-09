@@ -1,0 +1,2040 @@
+{
+  "encoder": "BAAI/bge-small-zh-v1.5|fastembed=0.9.1|artifacts=12c903c110273e6ccacba3cab28b971c9cc4743c571ff49a9b25ea840719da9b|query_prefix=为这个句子生成表示以用于检索相关文章：",
+  "index_fingerprint": "0cfd4828475d12c85c033880a0f516168297f31c3af2083073e1162c0a54b0ef",
+  "candidate_k": 10,
+  "rrf_k": 60,
+  "dataset_sha256": {
+    "retrieval_cases.json": "7e50c355820d1a51a6cb5a4b4e640caa7bc4ab06aef722369c856b7c0de92bec",
+    "evidence_gate_calibration.json": "04d7b2404488c6738e6d2fa54b80015c60058b177794da46d162edd106553ba4"
+  },
+  "threshold_rule": "Highest hundredth preserving every answerable calibration question",
+  "threshold": 0.47,
+  "calibration": [
+    {
+      "id": "dev-01",
+      "split": "dev",
+      "category": "exact",
+      "query": "设备报修后IT首次响应时限是多少？",
+      "relevant_ids": [
+        "equipment_repair:1"
+      ],
+      "evidence_quotes": [
+        "4 个工作小时"
+      ],
+      "best_cosine": 0.69046372
+    },
+    {
+      "id": "dev-02",
+      "split": "dev",
+      "category": "exact",
+      "query": "会议室最多一次能约多久？",
+      "relevant_ids": [
+        "meeting_rooms:1"
+      ],
+      "evidence_quotes": [
+        "最长 2 小时"
+      ],
+      "best_cosine": 0.61676565
+    },
+    {
+      "id": "dev-03",
+      "split": "dev",
+      "category": "exact",
+      "query": "来访登记需要提前几个工作日？",
+      "relevant_ids": [
+        "visitors:1"
+      ],
+      "evidence_quotes": [
+        "提前 1 个工作日"
+      ],
+      "best_cosine": 0.63957789
+    },
+    {
+      "id": "dev-04",
+      "split": "dev",
+      "category": "exact",
+      "query": "合同盖章前需要完成哪些评审？",
+      "relevant_ids": [
+        "contracts:1"
+      ],
+      "evidence_quotes": [
+        "法务审核法律条款"
+      ],
+      "best_cosine": 0.68524873
+    },
+    {
+      "id": "dev-05",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "电脑坏了报上去，多快会有人先接单？",
+      "relevant_ids": [
+        "equipment_repair:1"
+      ],
+      "evidence_quotes": [
+        "4 个工作小时"
+      ],
+      "best_cosine": 0.58012719
+    },
+    {
+      "id": "dev-06",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "占着会议房间迟迟没人来，会不会被系统取消？",
+      "relevant_ids": [
+        "meeting_rooms:1"
+      ],
+      "evidence_quotes": [
+        "15 分钟"
+      ],
+      "best_cosine": 0.58125682
+    },
+    {
+      "id": "dev-07",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "外单位的人进办公区，可以自己逛吗？",
+      "relevant_ids": [
+        "visitors:1"
+      ],
+      "evidence_quotes": [
+        "员工全程陪同"
+      ],
+      "best_cosine": 0.47772847
+    },
+    {
+      "id": "dev-08",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "准备跟外面签协议，得先让哪几个部门把关？",
+      "relevant_ids": [
+        "contracts:1"
+      ],
+      "evidence_quotes": [
+        "财务审核付款条款"
+      ],
+      "best_cosine": 0.51018188
+    },
+    {
+      "id": "dev-09",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "公司有几家分公司？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.43210033
+    },
+    {
+      "id": "dev-10",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "员工健身补贴是多少钱？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.52205247
+    },
+    {
+      "id": "gate-pos-01",
+      "split": "dev",
+      "category": "exact",
+      "query": "访客证离开公司前要还吗？",
+      "relevant_ids": [
+        "visitors:1"
+      ],
+      "evidence_quotes": [
+        "离开时交还访客证"
+      ],
+      "best_cosine": 0.56980349
+    },
+    {
+      "id": "gate-pos-02",
+      "split": "dev",
+      "category": "exact",
+      "query": "会议室预订最多能占用多久？",
+      "relevant_ids": [
+        "meeting_rooms:1"
+      ],
+      "evidence_quotes": [
+        "单次预约最长 2 小时"
+      ],
+      "best_cosine": 0.65312312
+    },
+    {
+      "id": "gate-pos-03",
+      "split": "dev",
+      "category": "exact",
+      "query": "发现疑似泄露后多久要联系信息安全值班人员？",
+      "relevant_ids": [
+        "incident:1"
+      ],
+      "evidence_quotes": [
+        "发现后 30 分钟内联系信息安全值班人员"
+      ],
+      "best_cosine": 0.67197001
+    },
+    {
+      "id": "gate-pos-04",
+      "split": "dev",
+      "category": "exact",
+      "query": "账号密码输错五次会被锁多久？",
+      "relevant_ids": [
+        "password:1"
+      ],
+      "evidence_quotes": [
+        "连续登录失败 5 次锁定账号 15 分钟"
+      ],
+      "best_cosine": 0.62413708
+    },
+    {
+      "id": "gate-pos-05",
+      "split": "dev",
+      "category": "exact",
+      "query": "每个人外部培训一年最多可报销多少钱？",
+      "relevant_ids": [
+        "training:1"
+      ],
+      "evidence_quotes": [
+        "单人每年累计报销上限为 3000 元"
+      ],
+      "best_cosine": 0.68985311
+    },
+    {
+      "id": "gate-pos-06",
+      "split": "dev",
+      "category": "exact",
+      "query": "一笔三万元的采购还要谁审批？",
+      "relevant_ids": [
+        "procurement:1"
+      ],
+      "evidence_quotes": [
+        "超过 20000 元增加总经理审批"
+      ],
+      "best_cosine": 0.66592077
+    },
+    {
+      "id": "gate-pos-07",
+      "split": "dev",
+      "category": "exact",
+      "query": "客户名单导出后到了批准期限该怎么处理？",
+      "relevant_ids": [
+        "data_export:1"
+      ],
+      "evidence_quotes": [
+        "在批准期限届满后清理"
+      ],
+      "best_cosine": 0.69198817
+    },
+    {
+      "id": "gate-pos-08",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "显示器坏了耽误今天工作，可以先领一台临时用吗？",
+      "relevant_ids": [
+        "equipment_repair:1"
+      ],
+      "evidence_quotes": [
+        "影响当天工作的故障可申请备用设备"
+      ],
+      "best_cosine": 0.56502616
+    },
+    {
+      "id": "gate-pos-09",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "临时的远程内网通行许可最多能保留几天？",
+      "relevant_ids": [
+        "vpn:1"
+      ],
+      "evidence_quotes": [
+        "临时权限有效期最长 7 天"
+      ],
+      "best_cosine": 0.58979061
+    },
+    {
+      "id": "gate-pos-10",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "人离开公司那天，单位什么时候停掉他的登录账号？",
+      "relevant_ids": [
+        "offboarding:1"
+      ],
+      "evidence_quotes": [
+        "最后工作日结束时停用工作账号"
+      ],
+      "best_cosine": 0.58910694
+    },
+    {
+      "id": "gate-neg-01",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "访客证遗失后要交多少补办费？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.55543288
+    },
+    {
+      "id": "gate-neg-02",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "会议室摄像头录制的视频最多能保存多少天？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.55548154
+    },
+    {
+      "id": "gate-neg-03",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "网络安全事件上报表要发到哪一个邮箱地址？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.62951984
+    },
+    {
+      "id": "gate-neg-04",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "工作账号的密码每隔多少天必须更换？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.64770285
+    },
+    {
+      "id": "gate-neg-05",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "公司会给学员报销多少资格证考试报名费？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.65724409
+    },
+    {
+      "id": "gate-neg-06",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "供应商给公司的采购质保金比例是多少？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.6018307
+    },
+    {
+      "id": "gate-neg-07",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "客户数据导出文件规定使用哪一种加密算法？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.60460553
+    },
+    {
+      "id": "gate-neg-08",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "公司备用显示器的型号有哪些？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.46186329
+    },
+    {
+      "id": "gate-neg-09",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "临时 VPN 的客户端安装包下载地址是什么？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.501169
+    },
+    {
+      "id": "gate-neg-10",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "离职员工的快递柜账号什么时候注销？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.54737243
+    },
+    {
+      "id": "gate-neg-11",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "星河科技的工位桌面标准高度是多少厘米？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.53770356
+    },
+    {
+      "id": "gate-neg-12",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "怎么设置家用鱼缸的水温？",
+      "relevant_ids": [],
+      "evidence_quotes": [],
+      "best_cosine": 0.36744756
+    }
+  ],
+  "test": {
+    "dense": {
+      "baseline": {
+        "answerable": 40,
+        "answerable_blocked": 0,
+        "recall_at_3": 0.95,
+        "unanswerable": 10,
+        "unanswerable_with_candidates": 10
+      },
+      "gated": {
+        "answerable": 40,
+        "answerable_blocked": 1,
+        "recall_at_3": 0.925,
+        "unanswerable": 10,
+        "unanswerable_with_candidates": 7
+      },
+      "cases": [
+        {
+          "id": "test-01",
+          "query": "一线城市出差住宿报销标准是多少？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "baseline": [
+            "reimbursement:1",
+            "business_trip_booking:1",
+            "taxi:1"
+          ],
+          "gated": [
+            "reimbursement:1",
+            "business_trip_booking:1",
+            "taxi:1"
+          ]
+        },
+        {
+          "id": "test-02",
+          "query": "住酒店最多能报多少钱？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "baseline": [
+            "reimbursement:1",
+            "business_trip_booking:1",
+            "meal_entertainment:1"
+          ],
+          "gated": [
+            "reimbursement:1",
+            "business_trip_booking:1",
+            "meal_entertainment:1"
+          ]
+        },
+        {
+          "id": "test-03",
+          "query": "订单逾期超过15天应该通知谁？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "baseline": [
+            "collections:1",
+            "suppliers:1",
+            "incident:1"
+          ],
+          "gated": [
+            "collections:1",
+            "suppliers:1",
+            "incident:1"
+          ]
+        },
+        {
+          "id": "test-04",
+          "query": "客户欠款拖了半个月，接下来该找谁处理？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "baseline": [
+            "collections:1",
+            "customer_complaints:1",
+            "refunds:1"
+          ],
+          "gated": [
+            "collections:1",
+            "customer_complaints:1",
+            "refunds:1"
+          ]
+        },
+        {
+          "id": "test-05",
+          "query": "API密钥应该保存在什么地方？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "baseline": [
+            "security:1",
+            "password:1",
+            "vpn:1"
+          ],
+          "gated": [
+            "security:1",
+            "password:1",
+            "vpn:1"
+          ]
+        },
+        {
+          "id": "test-06",
+          "query": "接入模型那串凭证可以直接写到网页代码里吗？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "baseline": [
+            "data_export:1",
+            "vpn:1",
+            "archive:1"
+          ],
+          "gated": [
+            "data_export:1",
+            "vpn:1",
+            "archive:1"
+          ]
+        },
+        {
+          "id": "test-07",
+          "query": "连续休年假5天需要提前多久申请？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "baseline": [
+            "leave:1",
+            "overtime:1",
+            "payroll:1"
+          ],
+          "gated": [
+            "leave:1",
+            "overtime:1",
+            "payroll:1"
+          ]
+        },
+        {
+          "id": "test-08",
+          "query": "想连着休息一整周，最晚什么时候向领导打招呼？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "baseline": [
+            "overtime:1",
+            "onboarding:1",
+            "payroll:1"
+          ],
+          "gated": [
+            "overtime:1",
+            "onboarding:1",
+            "payroll:1"
+          ]
+        },
+        {
+          "id": "test-09",
+          "query": "周末加班调休的有效期是多久？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "baseline": [
+            "overtime:1",
+            "leave:1",
+            "probation:1"
+          ],
+          "gated": [
+            "overtime:1",
+            "leave:1",
+            "probation:1"
+          ]
+        },
+        {
+          "id": "test-10",
+          "query": "周六多干的工时换成休息，能留着用到什么时候？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "baseline": [
+            "overtime:1",
+            "attendance:1",
+            "payroll:1"
+          ],
+          "gated": [
+            "overtime:1",
+            "attendance:1",
+            "payroll:1"
+          ]
+        },
+        {
+          "id": "test-11",
+          "query": "漏打卡后几个工作日内申请补卡？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "baseline": [
+            "attendance:1",
+            "leave:1",
+            "onboarding:1"
+          ],
+          "gated": [
+            "attendance:1",
+            "leave:1",
+            "onboarding:1"
+          ]
+        },
+        {
+          "id": "test-12",
+          "query": "早上到了公司忘了刷考勤，过多久就不能补了？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "baseline": [
+            "attendance:1",
+            "taxi:1",
+            "equipment_repair:1"
+          ],
+          "gated": [
+            "attendance:1",
+            "taxi:1",
+            "equipment_repair:1"
+          ]
+        },
+        {
+          "id": "test-13",
+          "query": "远程办公每周最多申请几天？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "baseline": [
+            "remote_work:1",
+            "vpn:1",
+            "visitors:1"
+          ],
+          "gated": [
+            "remote_work:1",
+            "vpn:1",
+            "visitors:1"
+          ]
+        },
+        {
+          "id": "test-14",
+          "query": "一周有几天可以不来办公室、在家干活？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "baseline": [
+            "remote_work:1",
+            "meeting_rooms:1",
+            "overtime:1"
+          ],
+          "gated": [
+            "remote_work:1",
+            "meeting_rooms:1",
+            "overtime:1"
+          ]
+        },
+        {
+          "id": "test-15",
+          "query": "入职首日由谁发放工作电脑和临时账号？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "baseline": [
+            "onboarding:1",
+            "payroll:1",
+            "asset_borrow:1"
+          ],
+          "gated": [
+            "onboarding:1",
+            "payroll:1",
+            "asset_borrow:1"
+          ]
+        },
+        {
+          "id": "test-16",
+          "query": "新同事第一天来，办公机器和登录用的账户找谁领？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "baseline": [
+            "onboarding:1",
+            "asset_borrow:1",
+            "visitors:1"
+          ],
+          "gated": [
+            "onboarding:1",
+            "asset_borrow:1",
+            "visitors:1"
+          ]
+        },
+        {
+          "id": "test-17",
+          "query": "试用期届满前几天启动转正考核？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "baseline": [
+            "probation:1",
+            "onboarding:1",
+            "asset_borrow:1"
+          ],
+          "gated": [
+            "probation:1",
+            "onboarding:1",
+            "asset_borrow:1"
+          ]
+        },
+        {
+          "id": "test-18",
+          "query": "成为正式员工之前，什么时候开始评估这段时间的表现？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "baseline": [
+            "onboarding:1",
+            "probation:1",
+            "payroll:1"
+          ],
+          "gated": [
+            "onboarding:1",
+            "probation:1",
+            "payroll:1"
+          ]
+        },
+        {
+          "id": "test-19",
+          "query": "离职员工的工作账号何时停用？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "baseline": [
+            "offboarding:1",
+            "asset_borrow:1",
+            "password:1"
+          ],
+          "gated": [
+            "offboarding:1",
+            "asset_borrow:1",
+            "password:1"
+          ]
+        },
+        {
+          "id": "test-20",
+          "query": "人走了之后，他的系统登录权限什么时候收回？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "baseline": [
+            "offboarding:1",
+            "asset_borrow:1",
+            "archive:1"
+          ],
+          "gated": [
+            "offboarding:1",
+            "asset_borrow:1",
+            "archive:1"
+          ]
+        },
+        {
+          "id": "test-21",
+          "query": "公司每月几号发放上月工资？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "baseline": [
+            "payroll:1",
+            "asset_borrow:1",
+            "leave:1"
+          ],
+          "gated": [
+            "payroll:1",
+            "asset_borrow:1",
+            "leave:1"
+          ]
+        },
+        {
+          "id": "test-22",
+          "query": "每个月哪天钱会打到员工卡上？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "baseline": [
+            "attendance:1",
+            "payroll:1",
+            "onboarding:1"
+          ],
+          "gated": [
+            "attendance:1",
+            "payroll:1",
+            "onboarding:1"
+          ]
+        },
+        {
+          "id": "test-23",
+          "query": "外部培训完成后报销比例与年度上限是多少？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "baseline": [
+            "training:1",
+            "equipment_repair:1",
+            "meal_entertainment:1"
+          ],
+          "gated": [
+            "training:1",
+            "equipment_repair:1",
+            "meal_entertainment:1"
+          ]
+        },
+        {
+          "id": "test-24",
+          "query": "自己去外面上完课程拿到结业证，公司能承担多少学费？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "baseline": [
+            "training:1",
+            "payroll:1",
+            "attendance:1"
+          ],
+          "gated": [
+            "training:1",
+            "payroll:1",
+            "attendance:1"
+          ]
+        },
+        {
+          "id": "test-25",
+          "query": "单笔采购6000元需要哪些人审批？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "baseline": [
+            "procurement:1",
+            "purchase_approval:1",
+            "meal_entertainment:1"
+          ],
+          "gated": [
+            "procurement:1",
+            "purchase_approval:1",
+            "meal_entertainment:1"
+          ]
+        },
+        {
+          "id": "test-26",
+          "query": "给团队买六千块的东西，除了部门领导还得谁签字？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "baseline": [
+            "procurement:1",
+            "meal_entertainment:1",
+            "onboarding:1"
+          ],
+          "gated": []
+        },
+        {
+          "id": "test-27",
+          "query": "因公借用工作电脑最长多少天？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "baseline": [
+            "asset_borrow:1",
+            "remote_work:1",
+            "equipment_repair:1"
+          ],
+          "gated": [
+            "asset_borrow:1",
+            "remote_work:1",
+            "equipment_repair:1"
+          ]
+        },
+        {
+          "id": "test-28",
+          "query": "把单位的笔记本带出去办事，最多多久得还回来？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "baseline": [
+            "asset_borrow:1",
+            "archive:1",
+            "equipment_repair:1"
+          ],
+          "gated": [
+            "asset_borrow:1",
+            "archive:1",
+            "equipment_repair:1"
+          ]
+        },
+        {
+          "id": "test-29",
+          "query": "VPN临时权限的最长有效期是多少？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "baseline": [
+            "vpn:1",
+            "asset_borrow:1",
+            "remote_work:1"
+          ],
+          "gated": [
+            "vpn:1",
+            "asset_borrow:1",
+            "remote_work:1"
+          ]
+        },
+        {
+          "id": "test-30",
+          "query": "在家连接单位内网的临时通道，开一次能用多久？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "baseline": [
+            "vpn:1",
+            "remote_work:1",
+            "attendance:1"
+          ],
+          "gated": [
+            "vpn:1",
+            "remote_work:1",
+            "attendance:1"
+          ]
+        },
+        {
+          "id": "test-31",
+          "query": "公司账号密码最少几位且包含哪些字符？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "baseline": [
+            "password:1",
+            "security:1",
+            "business_cards:1"
+          ],
+          "gated": [
+            "password:1",
+            "security:1",
+            "business_cards:1"
+          ]
+        },
+        {
+          "id": "test-32",
+          "query": "登录口令最短要设多长，纯数字行不行？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "baseline": [
+            "password:1",
+            "data_export:1",
+            "vpn:1"
+          ],
+          "gated": [
+            "password:1",
+            "data_export:1",
+            "vpn:1"
+          ]
+        },
+        {
+          "id": "test-33",
+          "query": "导出客户名单需要谁共同批准？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "baseline": [
+            "data_export:1",
+            "meal_entertainment:1",
+            "business_cards:1"
+          ],
+          "gated": [
+            "data_export:1",
+            "meal_entertainment:1",
+            "business_cards:1"
+          ]
+        },
+        {
+          "id": "test-34",
+          "query": "想把客户通讯录从系统里拉出来，要找哪两方签字？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "baseline": [
+            "data_export:1",
+            "password:1",
+            "visitors:1"
+          ],
+          "gated": [
+            "data_export:1",
+            "password:1",
+            "visitors:1"
+          ]
+        },
+        {
+          "id": "test-35",
+          "query": "客户开票申请需要核对哪些字段？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "baseline": [
+            "invoices:1",
+            "meal_entertainment:1",
+            "procurement:1"
+          ],
+          "gated": [
+            "invoices:1",
+            "meal_entertainment:1",
+            "procurement:1"
+          ]
+        },
+        {
+          "id": "test-36",
+          "query": "给客户开票时，抬头和税号之外还要准备哪些信息？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "baseline": [
+            "invoices:1",
+            "meal_entertainment:1",
+            "suppliers:1"
+          ],
+          "gated": [
+            "invoices:1",
+            "meal_entertainment:1",
+            "suppliers:1"
+          ]
+        },
+        {
+          "id": "test-37",
+          "query": "财务批准退款后几个工作日内到账？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "baseline": [
+            "refunds:1",
+            "archive:1",
+            "collections:1"
+          ],
+          "gated": [
+            "refunds:1",
+            "archive:1",
+            "collections:1"
+          ]
+        },
+        {
+          "id": "test-38",
+          "query": "客户要求退钱，审批走完后要等多久才能退回去？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "baseline": [
+            "refunds:1",
+            "collections:1",
+            "customer_complaints:1"
+          ],
+          "gated": [
+            "refunds:1",
+            "collections:1",
+            "customer_complaints:1"
+          ]
+        },
+        {
+          "id": "test-39",
+          "query": "客户业务招待的人均餐费上限是多少？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "baseline": [
+            "meal_entertainment:1",
+            "reimbursement:1",
+            "visitors:1"
+          ],
+          "gated": [
+            "meal_entertainment:1",
+            "reimbursement:1",
+            "visitors:1"
+          ]
+        },
+        {
+          "id": "test-40",
+          "query": "请客户吃饭，平均每个人能花多少钱？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "baseline": [
+            "meal_entertainment:1",
+            "reimbursement:1",
+            "procurement:1"
+          ],
+          "gated": [
+            "meal_entertainment:1",
+            "reimbursement:1",
+            "procurement:1"
+          ]
+        },
+        {
+          "id": "test-41",
+          "query": "公司今年有多少名员工？",
+          "relevant_ids": [],
+          "baseline": [
+            "business_cards:1",
+            "payroll:1",
+            "leave:1"
+          ],
+          "gated": [
+            "business_cards:1",
+            "payroll:1",
+            "leave:1"
+          ]
+        },
+        {
+          "id": "test-42",
+          "query": "年度体检费用能报销多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "training:1",
+            "reimbursement:1",
+            "meal_entertainment:1"
+          ],
+          "gated": [
+            "training:1",
+            "reimbursement:1",
+            "meal_entertainment:1"
+          ]
+        },
+        {
+          "id": "test-43",
+          "query": "生育假有多少天？",
+          "relevant_ids": [],
+          "baseline": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ],
+          "gated": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ]
+        },
+        {
+          "id": "test-44",
+          "query": "公司明年会给员工涨薪多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "payroll:1",
+            "leave:1",
+            "annual_bonus:1"
+          ],
+          "gated": [
+            "payroll:1",
+            "leave:1",
+            "annual_bonus:1"
+          ]
+        },
+        {
+          "id": "test-45",
+          "query": "明天青岛会下雨吗？",
+          "relevant_ids": [],
+          "baseline": [
+            "taxi:1",
+            "business_trip_booking:1",
+            "customer_complaints:1"
+          ],
+          "gated": []
+        },
+        {
+          "id": "test-46",
+          "query": "员工商业医疗保险的保额是多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "payroll:1",
+            "meal_entertainment:1",
+            "procurement:1"
+          ],
+          "gated": []
+        },
+        {
+          "id": "test-47",
+          "query": "明年春节统一放假日期是哪几天？",
+          "relevant_ids": [],
+          "baseline": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ],
+          "gated": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ]
+        },
+        {
+          "id": "test-48",
+          "query": "公司首席执行官的私人手机号码是多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "business_cards:1",
+            "password:1",
+            "asset_borrow:1"
+          ],
+          "gated": [
+            "business_cards:1",
+            "password:1",
+            "asset_borrow:1"
+          ]
+        },
+        {
+          "id": "test-49",
+          "query": "公司上一财年的营业收入是多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "annual_bonus:1",
+            "payroll:1",
+            "suppliers:1"
+          ],
+          "gated": []
+        },
+        {
+          "id": "test-50",
+          "query": "公司为员工提供住房贷款的利率是多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "payroll:1",
+            "asset_borrow:1",
+            "suppliers:1"
+          ],
+          "gated": [
+            "payroll:1",
+            "asset_borrow:1",
+            "suppliers:1"
+          ]
+        }
+      ]
+    },
+    "hybrid": {
+      "baseline": {
+        "answerable": 40,
+        "answerable_blocked": 0,
+        "recall_at_3": 0.875,
+        "unanswerable": 10,
+        "unanswerable_with_candidates": 10
+      },
+      "gated": {
+        "answerable": 40,
+        "answerable_blocked": 1,
+        "recall_at_3": 0.85,
+        "unanswerable": 10,
+        "unanswerable_with_candidates": 7
+      },
+      "cases": [
+        {
+          "id": "test-01",
+          "query": "一线城市出差住宿报销标准是多少？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "baseline": [
+            "reimbursement:1",
+            "taxi:1",
+            "business_trip_booking:1"
+          ],
+          "gated": [
+            "reimbursement:1",
+            "taxi:1",
+            "business_trip_booking:1"
+          ]
+        },
+        {
+          "id": "test-02",
+          "query": "住酒店最多能报多少钱？",
+          "relevant_ids": [
+            "reimbursement:1"
+          ],
+          "baseline": [
+            "business_trip_booking:1",
+            "attendance:1",
+            "reimbursement:1"
+          ],
+          "gated": [
+            "business_trip_booking:1",
+            "attendance:1",
+            "reimbursement:1"
+          ]
+        },
+        {
+          "id": "test-03",
+          "query": "订单逾期超过15天应该通知谁？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "baseline": [
+            "collections:1",
+            "purchase_approval:1",
+            "payroll:1"
+          ],
+          "gated": [
+            "collections:1",
+            "purchase_approval:1",
+            "payroll:1"
+          ]
+        },
+        {
+          "id": "test-04",
+          "query": "客户欠款拖了半个月，接下来该找谁处理？",
+          "relevant_ids": [
+            "collections:1"
+          ],
+          "baseline": [
+            "collections:1",
+            "customer_complaints:1",
+            "refunds:1"
+          ],
+          "gated": [
+            "collections:1",
+            "customer_complaints:1",
+            "refunds:1"
+          ]
+        },
+        {
+          "id": "test-05",
+          "query": "API密钥应该保存在什么地方？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "baseline": [
+            "security:1",
+            "data_export:1",
+            "password:1"
+          ],
+          "gated": [
+            "security:1",
+            "data_export:1",
+            "password:1"
+          ]
+        },
+        {
+          "id": "test-06",
+          "query": "接入模型那串凭证可以直接写到网页代码里吗？",
+          "relevant_ids": [
+            "security:1"
+          ],
+          "baseline": [
+            "vpn:1",
+            "archive:1",
+            "security:1"
+          ],
+          "gated": [
+            "vpn:1",
+            "archive:1",
+            "security:1"
+          ]
+        },
+        {
+          "id": "test-07",
+          "query": "连续休年假5天需要提前多久申请？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "baseline": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ],
+          "gated": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ]
+        },
+        {
+          "id": "test-08",
+          "query": "想连着休息一整周，最晚什么时候向领导打招呼？",
+          "relevant_ids": [
+            "leave:1"
+          ],
+          "baseline": [
+            "overtime:1",
+            "onboarding:1",
+            "payroll:1"
+          ],
+          "gated": [
+            "overtime:1",
+            "onboarding:1",
+            "payroll:1"
+          ]
+        },
+        {
+          "id": "test-09",
+          "query": "周末加班调休的有效期是多久？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "baseline": [
+            "overtime:1",
+            "taxi:1",
+            "leave:1"
+          ],
+          "gated": [
+            "overtime:1",
+            "taxi:1",
+            "leave:1"
+          ]
+        },
+        {
+          "id": "test-10",
+          "query": "周六多干的工时换成休息，能留着用到什么时候？",
+          "relevant_ids": [
+            "overtime:1"
+          ],
+          "baseline": [
+            "overtime:1",
+            "payroll:1",
+            "attendance:1"
+          ],
+          "gated": [
+            "overtime:1",
+            "payroll:1",
+            "attendance:1"
+          ]
+        },
+        {
+          "id": "test-11",
+          "query": "漏打卡后几个工作日内申请补卡？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "baseline": [
+            "attendance:1",
+            "leave:1",
+            "payroll:1"
+          ],
+          "gated": [
+            "attendance:1",
+            "leave:1",
+            "payroll:1"
+          ]
+        },
+        {
+          "id": "test-12",
+          "query": "早上到了公司忘了刷考勤，过多久就不能补了？",
+          "relevant_ids": [
+            "attendance:1"
+          ],
+          "baseline": [
+            "attendance:1",
+            "asset_borrow:1",
+            "payroll:1"
+          ],
+          "gated": [
+            "attendance:1",
+            "asset_borrow:1",
+            "payroll:1"
+          ]
+        },
+        {
+          "id": "test-13",
+          "query": "远程办公每周最多申请几天？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "baseline": [
+            "remote_work:1",
+            "vpn:1",
+            "visitors:1"
+          ],
+          "gated": [
+            "remote_work:1",
+            "vpn:1",
+            "visitors:1"
+          ]
+        },
+        {
+          "id": "test-14",
+          "query": "一周有几天可以不来办公室、在家干活？",
+          "relevant_ids": [
+            "remote_work:1"
+          ],
+          "baseline": [
+            "meeting_rooms:1",
+            "remote_work:1",
+            "asset_borrow:1"
+          ],
+          "gated": [
+            "meeting_rooms:1",
+            "remote_work:1",
+            "asset_borrow:1"
+          ]
+        },
+        {
+          "id": "test-15",
+          "query": "入职首日由谁发放工作电脑和临时账号？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "baseline": [
+            "onboarding:1",
+            "asset_borrow:1",
+            "payroll:1"
+          ],
+          "gated": [
+            "onboarding:1",
+            "asset_borrow:1",
+            "payroll:1"
+          ]
+        },
+        {
+          "id": "test-16",
+          "query": "新同事第一天来，办公机器和登录用的账户找谁领？",
+          "relevant_ids": [
+            "onboarding:1"
+          ],
+          "baseline": [
+            "asset_borrow:1",
+            "password:1",
+            "remote_work:1"
+          ],
+          "gated": [
+            "asset_borrow:1",
+            "password:1",
+            "remote_work:1"
+          ]
+        },
+        {
+          "id": "test-17",
+          "query": "试用期届满前几天启动转正考核？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "baseline": [
+            "probation:1",
+            "asset_borrow:1",
+            "onboarding:1"
+          ],
+          "gated": [
+            "probation:1",
+            "asset_borrow:1",
+            "onboarding:1"
+          ]
+        },
+        {
+          "id": "test-18",
+          "query": "成为正式员工之前，什么时候开始评估这段时间的表现？",
+          "relevant_ids": [
+            "probation:1"
+          ],
+          "baseline": [
+            "leave:1",
+            "onboarding:1",
+            "suppliers:1"
+          ],
+          "gated": [
+            "leave:1",
+            "onboarding:1",
+            "suppliers:1"
+          ]
+        },
+        {
+          "id": "test-19",
+          "query": "离职员工的工作账号何时停用？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "baseline": [
+            "offboarding:1",
+            "vpn:1",
+            "password:1"
+          ],
+          "gated": [
+            "offboarding:1",
+            "vpn:1",
+            "password:1"
+          ]
+        },
+        {
+          "id": "test-20",
+          "query": "人走了之后，他的系统登录权限什么时候收回？",
+          "relevant_ids": [
+            "offboarding:1"
+          ],
+          "baseline": [
+            "offboarding:1",
+            "vpn:1",
+            "password:1"
+          ],
+          "gated": [
+            "offboarding:1",
+            "vpn:1",
+            "password:1"
+          ]
+        },
+        {
+          "id": "test-21",
+          "query": "公司每月几号发放上月工资？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "baseline": [
+            "payroll:1",
+            "annual_bonus:1",
+            "asset_borrow:1"
+          ],
+          "gated": [
+            "payroll:1",
+            "annual_bonus:1",
+            "asset_borrow:1"
+          ]
+        },
+        {
+          "id": "test-22",
+          "query": "每个月哪天钱会打到员工卡上？",
+          "relevant_ids": [
+            "payroll:1"
+          ],
+          "baseline": [
+            "onboarding:1",
+            "attendance:1",
+            "business_cards:1"
+          ],
+          "gated": [
+            "onboarding:1",
+            "attendance:1",
+            "business_cards:1"
+          ]
+        },
+        {
+          "id": "test-23",
+          "query": "外部培训完成后报销比例与年度上限是多少？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "baseline": [
+            "training:1",
+            "meal_entertainment:1",
+            "procurement:1"
+          ],
+          "gated": [
+            "training:1",
+            "meal_entertainment:1",
+            "procurement:1"
+          ]
+        },
+        {
+          "id": "test-24",
+          "query": "自己去外面上完课程拿到结业证，公司能承担多少学费？",
+          "relevant_ids": [
+            "training:1"
+          ],
+          "baseline": [
+            "training:1",
+            "payroll:1",
+            "reimbursement:1"
+          ],
+          "gated": [
+            "training:1",
+            "payroll:1",
+            "reimbursement:1"
+          ]
+        },
+        {
+          "id": "test-25",
+          "query": "单笔采购6000元需要哪些人审批？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "baseline": [
+            "procurement:1",
+            "purchase_approval:1",
+            "meal_entertainment:1"
+          ],
+          "gated": [
+            "procurement:1",
+            "purchase_approval:1",
+            "meal_entertainment:1"
+          ]
+        },
+        {
+          "id": "test-26",
+          "query": "给团队买六千块的东西，除了部门领导还得谁签字？",
+          "relevant_ids": [
+            "procurement:1"
+          ],
+          "baseline": [
+            "contracts:1",
+            "procurement:1",
+            "offboarding:1"
+          ],
+          "gated": []
+        },
+        {
+          "id": "test-27",
+          "query": "因公借用工作电脑最长多少天？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "baseline": [
+            "asset_borrow:1",
+            "remote_work:1",
+            "equipment_repair:1"
+          ],
+          "gated": [
+            "asset_borrow:1",
+            "remote_work:1",
+            "equipment_repair:1"
+          ]
+        },
+        {
+          "id": "test-28",
+          "query": "把单位的笔记本带出去办事，最多多久得还回来？",
+          "relevant_ids": [
+            "asset_borrow:1"
+          ],
+          "baseline": [
+            "attendance:1",
+            "remote_work:1",
+            "asset_borrow:1"
+          ],
+          "gated": [
+            "attendance:1",
+            "remote_work:1",
+            "asset_borrow:1"
+          ]
+        },
+        {
+          "id": "test-29",
+          "query": "VPN临时权限的最长有效期是多少？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "baseline": [
+            "vpn:1",
+            "asset_borrow:1",
+            "offboarding:1"
+          ],
+          "gated": [
+            "vpn:1",
+            "asset_borrow:1",
+            "offboarding:1"
+          ]
+        },
+        {
+          "id": "test-30",
+          "query": "在家连接单位内网的临时通道，开一次能用多久？",
+          "relevant_ids": [
+            "vpn:1"
+          ],
+          "baseline": [
+            "vpn:1",
+            "visitors:1",
+            "onboarding:1"
+          ],
+          "gated": [
+            "vpn:1",
+            "visitors:1",
+            "onboarding:1"
+          ]
+        },
+        {
+          "id": "test-31",
+          "query": "公司账号密码最少几位且包含哪些字符？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "baseline": [
+            "password:1",
+            "business_cards:1",
+            "vpn:1"
+          ],
+          "gated": [
+            "password:1",
+            "business_cards:1",
+            "vpn:1"
+          ]
+        },
+        {
+          "id": "test-32",
+          "query": "登录口令最短要设多长，纯数字行不行？",
+          "relevant_ids": [
+            "password:1"
+          ],
+          "baseline": [
+            "password:1",
+            "onboarding:1",
+            "data_export:1"
+          ],
+          "gated": [
+            "password:1",
+            "onboarding:1",
+            "data_export:1"
+          ]
+        },
+        {
+          "id": "test-33",
+          "query": "导出客户名单需要谁共同批准？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "baseline": [
+            "data_export:1",
+            "meal_entertainment:1",
+            "business_cards:1"
+          ],
+          "gated": [
+            "data_export:1",
+            "meal_entertainment:1",
+            "business_cards:1"
+          ]
+        },
+        {
+          "id": "test-34",
+          "query": "想把客户通讯录从系统里拉出来，要找哪两方签字？",
+          "relevant_ids": [
+            "data_export:1"
+          ],
+          "baseline": [
+            "offboarding:1",
+            "contracts:1",
+            "password:1"
+          ],
+          "gated": [
+            "offboarding:1",
+            "contracts:1",
+            "password:1"
+          ]
+        },
+        {
+          "id": "test-35",
+          "query": "客户开票申请需要核对哪些字段？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "baseline": [
+            "invoices:1",
+            "data_export:1",
+            "meal_entertainment:1"
+          ],
+          "gated": [
+            "invoices:1",
+            "data_export:1",
+            "meal_entertainment:1"
+          ]
+        },
+        {
+          "id": "test-36",
+          "query": "给客户开票时，抬头和税号之外还要准备哪些信息？",
+          "relevant_ids": [
+            "invoices:1"
+          ],
+          "baseline": [
+            "invoices:1",
+            "meal_entertainment:1",
+            "collections:1"
+          ],
+          "gated": [
+            "invoices:1",
+            "meal_entertainment:1",
+            "collections:1"
+          ]
+        },
+        {
+          "id": "test-37",
+          "query": "财务批准退款后几个工作日内到账？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "baseline": [
+            "refunds:1",
+            "archive:1",
+            "invoices:1"
+          ],
+          "gated": [
+            "refunds:1",
+            "archive:1",
+            "invoices:1"
+          ]
+        },
+        {
+          "id": "test-38",
+          "query": "客户要求退钱，审批走完后要等多久才能退回去？",
+          "relevant_ids": [
+            "refunds:1"
+          ],
+          "baseline": [
+            "refunds:1",
+            "collections:1",
+            "meal_entertainment:1"
+          ],
+          "gated": [
+            "refunds:1",
+            "collections:1",
+            "meal_entertainment:1"
+          ]
+        },
+        {
+          "id": "test-39",
+          "query": "客户业务招待的人均餐费上限是多少？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "baseline": [
+            "meal_entertainment:1",
+            "business_trip_booking:1",
+            "training:1"
+          ],
+          "gated": [
+            "meal_entertainment:1",
+            "business_trip_booking:1",
+            "training:1"
+          ]
+        },
+        {
+          "id": "test-40",
+          "query": "请客户吃饭，平均每个人能花多少钱？",
+          "relevant_ids": [
+            "meal_entertainment:1"
+          ],
+          "baseline": [
+            "meal_entertainment:1",
+            "customer_complaints:1",
+            "collections:1"
+          ],
+          "gated": [
+            "meal_entertainment:1",
+            "customer_complaints:1",
+            "collections:1"
+          ]
+        },
+        {
+          "id": "test-41",
+          "query": "公司今年有多少名员工？",
+          "relevant_ids": [],
+          "baseline": [
+            "business_cards:1",
+            "payroll:1",
+            "annual_bonus:1"
+          ],
+          "gated": [
+            "business_cards:1",
+            "payroll:1",
+            "annual_bonus:1"
+          ]
+        },
+        {
+          "id": "test-42",
+          "query": "年度体检费用能报销多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "training:1",
+            "reimbursement:1",
+            "annual_bonus:1"
+          ],
+          "gated": [
+            "training:1",
+            "reimbursement:1",
+            "annual_bonus:1"
+          ]
+        },
+        {
+          "id": "test-43",
+          "query": "生育假有多少天？",
+          "relevant_ids": [],
+          "baseline": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ],
+          "gated": [
+            "leave:1",
+            "payroll:1",
+            "overtime:1"
+          ]
+        },
+        {
+          "id": "test-44",
+          "query": "公司明年会给员工涨薪多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "payroll:1",
+            "annual_bonus:1",
+            "onboarding:1"
+          ],
+          "gated": [
+            "payroll:1",
+            "annual_bonus:1",
+            "onboarding:1"
+          ]
+        },
+        {
+          "id": "test-45",
+          "query": "明天青岛会下雨吗？",
+          "relevant_ids": [],
+          "baseline": [
+            "taxi:1",
+            "business_trip_booking:1",
+            "customer_complaints:1"
+          ],
+          "gated": []
+        },
+        {
+          "id": "test-46",
+          "query": "员工商业医疗保险的保额是多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "suppliers:1",
+            "onboarding:1",
+            "business_cards:1"
+          ],
+          "gated": []
+        },
+        {
+          "id": "test-47",
+          "query": "明年春节统一放假日期是哪几天？",
+          "relevant_ids": [],
+          "baseline": [
+            "payroll:1",
+            "overtime:1",
+            "archive:1"
+          ],
+          "gated": [
+            "payroll:1",
+            "overtime:1",
+            "archive:1"
+          ]
+        },
+        {
+          "id": "test-48",
+          "query": "公司首席执行官的私人手机号码是多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "business_cards:1",
+            "asset_borrow:1",
+            "password:1"
+          ],
+          "gated": [
+            "business_cards:1",
+            "asset_borrow:1",
+            "password:1"
+          ]
+        },
+        {
+          "id": "test-49",
+          "query": "公司上一财年的营业收入是多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "suppliers:1",
+            "payroll:1",
+            "annual_bonus:1"
+          ],
+          "gated": []
+        },
+        {
+          "id": "test-50",
+          "query": "公司为员工提供住房贷款的利率是多少？",
+          "relevant_ids": [],
+          "baseline": [
+            "payroll:1",
+            "asset_borrow:1",
+            "suppliers:1"
+          ],
+          "gated": [
+            "payroll:1",
+            "asset_borrow:1",
+            "suppliers:1"
+          ]
+        }
+      ]
+    }
+  }
+}

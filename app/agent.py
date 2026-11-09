@@ -170,9 +170,7 @@ class Agent:
                 for match in result["matches"]:
                     parts.append(f"{match['title']}\n{match['text']}\n[{match['id']}]")
             else:
-                parts.append(
-                    "知识库未找到相关内容。可尝试询问住宿报销标准、未付款订单或逾期处理制度。"
-                )
+                parts.append("知识库未找到足以支持回答的资料。可补充制度名称或业务场景后再试。")
         parts.append(
             "演示模式不能理解任意复杂条件或上下文；配置 live 模式后由大模型选择工具并总结。"
         )

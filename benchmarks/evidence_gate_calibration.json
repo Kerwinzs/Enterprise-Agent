@@ -1,0 +1,220 @@
+{
+  "cases": [
+    {
+      "id": "gate-pos-01",
+      "split": "dev",
+      "category": "exact",
+      "query": "访客证离开公司前要还吗？",
+      "relevant_ids": [
+        "visitors:1"
+      ],
+      "evidence_quotes": [
+        "离开时交还访客证"
+      ]
+    },
+    {
+      "id": "gate-pos-02",
+      "split": "dev",
+      "category": "exact",
+      "query": "会议室预订最多能占用多久？",
+      "relevant_ids": [
+        "meeting_rooms:1"
+      ],
+      "evidence_quotes": [
+        "单次预约最长 2 小时"
+      ]
+    },
+    {
+      "id": "gate-pos-03",
+      "split": "dev",
+      "category": "exact",
+      "query": "发现疑似泄露后多久要联系信息安全值班人员？",
+      "relevant_ids": [
+        "incident:1"
+      ],
+      "evidence_quotes": [
+        "发现后 30 分钟内联系信息安全值班人员"
+      ]
+    },
+    {
+      "id": "gate-pos-04",
+      "split": "dev",
+      "category": "exact",
+      "query": "账号密码输错五次会被锁多久？",
+      "relevant_ids": [
+        "password:1"
+      ],
+      "evidence_quotes": [
+        "连续登录失败 5 次锁定账号 15 分钟"
+      ]
+    },
+    {
+      "id": "gate-pos-05",
+      "split": "dev",
+      "category": "exact",
+      "query": "每个人外部培训一年最多可报销多少钱？",
+      "relevant_ids": [
+        "training:1"
+      ],
+      "evidence_quotes": [
+        "单人每年累计报销上限为 3000 元"
+      ]
+    },
+    {
+      "id": "gate-pos-06",
+      "split": "dev",
+      "category": "exact",
+      "query": "一笔三万元的采购还要谁审批？",
+      "relevant_ids": [
+        "procurement:1"
+      ],
+      "evidence_quotes": [
+        "超过 20000 元增加总经理审批"
+      ]
+    },
+    {
+      "id": "gate-pos-07",
+      "split": "dev",
+      "category": "exact",
+      "query": "客户名单导出后到了批准期限该怎么处理？",
+      "relevant_ids": [
+        "data_export:1"
+      ],
+      "evidence_quotes": [
+        "在批准期限届满后清理"
+      ]
+    },
+    {
+      "id": "gate-pos-08",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "显示器坏了耽误今天工作，可以先领一台临时用吗？",
+      "relevant_ids": [
+        "equipment_repair:1"
+      ],
+      "evidence_quotes": [
+        "影响当天工作的故障可申请备用设备"
+      ]
+    },
+    {
+      "id": "gate-pos-09",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "临时的远程内网通行许可最多能保留几天？",
+      "relevant_ids": [
+        "vpn:1"
+      ],
+      "evidence_quotes": [
+        "临时权限有效期最长 7 天"
+      ]
+    },
+    {
+      "id": "gate-pos-10",
+      "split": "dev",
+      "category": "paraphrase",
+      "query": "人离开公司那天，单位什么时候停掉他的登录账号？",
+      "relevant_ids": [
+        "offboarding:1"
+      ],
+      "evidence_quotes": [
+        "最后工作日结束时停用工作账号"
+      ]
+    },
+    {
+      "id": "gate-neg-01",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "访客证遗失后要交多少补办费？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-02",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "会议室摄像头录制的视频最多能保存多少天？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-03",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "网络安全事件上报表要发到哪一个邮箱地址？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-04",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "工作账号的密码每隔多少天必须更换？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-05",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "公司会给学员报销多少资格证考试报名费？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-06",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "供应商给公司的采购质保金比例是多少？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-07",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "客户数据导出文件规定使用哪一种加密算法？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-08",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "公司备用显示器的型号有哪些？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-09",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "临时 VPN 的客户端安装包下载地址是什么？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-10",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "离职员工的快递柜账号什么时候注销？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-11",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "星河科技的工位桌面标准高度是多少厘米？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    },
+    {
+      "id": "gate-neg-12",
+      "split": "dev",
+      "category": "no_answer",
+      "query": "怎么设置家用鱼缸的水温？",
+      "relevant_ids": [],
+      "evidence_quotes": []
+    }
+  ]
+}

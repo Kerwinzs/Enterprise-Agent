@@ -65,7 +65,14 @@ class DocumentIndex:
         if mode != "bm25" and self.dense is None:
             raise ValueError("Dense and hybrid retrieval require an encoder")
 
-    def search(self, query: str, top_k: int = 3, *, mode: str | None = None) -> list[Source]:
+    def search(
+        self,
+        query: str,
+        top_k: int = 3,
+        *,
+        mode: str | None = None,
+        min_dense_score: float | None = None,
+    ) -> list[Source]:
         selected = mode or self.mode
         if selected not in {"bm25", "dense", "hybrid"}:
             raise ValueError("Unknown retrieval mode")
@@ -77,12 +84,17 @@ class DocumentIndex:
             return self._bm25_search(query, top_k)
         if self.dense is None:
             raise ValueError("Dense retrieval is not configured")
+        depth = top_k if selected == "dense" else max(self.candidate_k, top_k)
+        dense_matches = self.dense.search(query, depth)
+        if min_dense_score is not None and (
+            not dense_matches or dense_matches[0].score < min_dense_score
+        ):
+            return []
         if selected == "dense":
-            return self.dense.search(query, top_k)
+            return dense_matches
         # Each leg fetches more than final top_k so cross-list agreement can survive.
-        depth = max(self.candidate_k, top_k)
         return reciprocal_rank_fusion(
-            [self._bm25_search(query, depth), self.dense.search(query, depth)],
+            [self._bm25_search(query, depth), dense_matches],
             top_k=top_k,
             rank_constant=self.rrf_k,
         )

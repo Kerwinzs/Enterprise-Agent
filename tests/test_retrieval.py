@@ -216,6 +216,36 @@ def test_hybrid_is_used_by_actual_chat_tool(tmp_path, monkeypatch):
         assert result["sources"][0]["document"] == "reimbursement"
 
 
+@pytest.mark.parametrize("mode", ["dense", "hybrid"])
+def test_chat_evidence_gate_blocks_weak_matches_and_accepts_boundary(tmp_path, monkeypatch, mode):
+    import app.main as main_module
+
+    class GateEncoder(FakeEncoder):
+        def embed_query(self, text):
+            if text == "访客证补办费多少？":
+                return [-1, -1, -1]
+            return super().embed_query(text)
+
+    monkeypatch.setattr(main_module, "LocalChineseEncoder", GateEncoder)
+    settings = Settings(
+        _env_file=None,
+        agent_mode="demo",
+        retrieval_mode=mode,
+        retrieval_min_dense_score=1.0,
+        data_dir=tmp_path,
+        openai_api_key="",
+    )
+    with TestClient(main_module.create_app(settings)) as client:
+        weak = client.post("/api/chat", json={"message": "访客证补办费多少？"}).json()
+        assert weak["tool_calls"][0]["result"]["min_dense_score"] == 1.0
+        assert weak["tool_calls"][0]["result"]["matches"] == []
+        assert weak["sources"] == []
+        assert "未找到足以支持回答的资料" in weak["answer"]
+
+        strong = client.post("/api/chat", json={"message": "住店花销"}).json()
+        assert strong["sources"][0]["id"] == "reimbursement:1"
+
+
 def test_local_encoder_dependency_and_download_boundary(tmp_path, monkeypatch):
     import sys
     from types import SimpleNamespace

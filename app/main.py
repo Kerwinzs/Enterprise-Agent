@@ -36,7 +36,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             candidate_k=settings.retrieval_candidate_k,
             rrf_k=settings.retrieval_rrf_k,
         )
-        registry = ToolRegistry(index, OrderStore(db_path))
+        registry = ToolRegistry(
+            index, OrderStore(db_path), min_dense_score=settings.retrieval_min_dense_score
+        )
         async with httpx.AsyncClient(follow_redirects=False) as client:
             app.state.agent = Agent(settings, registry, ChatCompletionClient(settings, client))
             app.state.index = index

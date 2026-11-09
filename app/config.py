@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     retrieval_mode: Literal["bm25", "dense", "hybrid"] = "bm25"
     retrieval_candidate_k: int = Field(default=10, ge=1, le=100)
     retrieval_rrf_k: int = Field(default=60, ge=1, le=1000)
+    retrieval_min_dense_score: float | None = Field(default=None, ge=-1, le=1)
 
     @field_validator("openai_base_url")
     @classmethod
