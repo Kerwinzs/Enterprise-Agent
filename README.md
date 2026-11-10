@@ -129,6 +129,24 @@ python -m scripts.evaluate_retrieval --split test --output docs/retrieval_result
 没有本地模型也可用 --modes bm25 单独测基线。
 缓存会校验文档、模型和版本指纹。缺模型的 dense / hybrid 模式会在启动时提示模型准备步骤。
 
+### 重复查询的向量缓存
+
+纯向量和混合检索会复用相同检索文本的查询向量。每个索引实例在内存中最多保留 128 条，
+满后淘汰最久未使用的条目。查询向量命中缓存后，每次检索仍按当前参数计算分数和证据门槛。
+
+在本机用 BGE 模型对同一批 50 条测试问题各运行 5 次，对比关闭查询缓存和提前缓存全部测试问题的场景。
+两组逐题候选 ID、顺序和分数一致。表中耗时统计的是检索阶段，收益取决于实际的重复查询比例。
+
+| 模式 | 未缓存 P50 | 缓存命中 P50 | 未缓存 P95 | 缓存命中 P95 |
+| --- | ---: | ---: | ---: | ---: |
+| dense | 7.915 ms | 0.671 ms | 12.578 ms | 0.698 ms |
+| hybrid | 8.181 ms | 0.841 ms | 12.643 ms | 0.918 ms |
+
+~~~bash
+python -m scripts.evaluate_retrieval --modes dense hybrid --query-cache-size 0 --output .local/query-cache-cold.json
+python -m scripts.evaluate_retrieval --modes dense hybrid --query-cache-size 128 --output .local/query-cache-warm.json
+~~~
+
 ### 检索证据门槛
 
 向量搜索总会从已有片段中选出近邻。启用门槛后，dense 和 hybrid 先检查最高余弦相似度。
@@ -232,7 +250,7 @@ ruff format --check .
 覆盖检索命中与无结果、客户精确匹配、未回款口径与全量汇总、SQL 注入输入、
 只读连接、非法工具和参数、API 输入边界、真实工具执行、
 模拟 HTTP 供应商的多工具往返、错误脱敏、调用预算与超时。
-测试无需密钥，不产生模型费用。当前 61 项测试覆盖原能力及 RRF、检索证据门槛、向量缓存失效/损坏、
+测试无需密钥，不产生模型费用。当前 63 项测试覆盖原能力及 RRF、检索证据门槛、向量缓存失效/损坏、
 向量合法性、评测指标口径、显式下载边界和混合检索的实际工具路径。
 默认单元测试使用测试编码器，不下载模型；效果报告由本机真实 BGE 模型生成。
 GitHub Actions 在 Python 3.11 / 3.12 检查基础依赖，另在 3.12 验证可选向量依赖。

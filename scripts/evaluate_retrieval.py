@@ -143,9 +143,17 @@ def main():
         default=["bm25", "dense", "hybrid"],
     )
     parser.add_argument("--repeats", type=int, default=5)
+    parser.add_argument(
+        "--query-cache-size",
+        type=int,
+        default=0,
+        help="Capacity for preloaded evaluation queries. Zero measures uncached queries.",
+    )
     args = parser.parse_args()
     if args.repeats < 1:
         parser.error("--repeats must be positive")
+    if args.query_cache_size < 0:
+        parser.error("--query-cache-size must be nonnegative")
     settings = Settings()
     started = time.perf_counter()
     encoder = (
@@ -159,9 +167,13 @@ def main():
         cache_dir=settings.data_dir / "vectors",
         candidate_k=settings.retrieval_candidate_k,
         rrf_k=settings.retrieval_rrf_k,
+        query_cache_size=args.query_cache_size,
     )
     setup_ms = (time.perf_counter() - started) * 1000
     cases = load_cases(args.cases, index, args.split)
+    if encoder and args.query_cache_size:
+        for case in cases:
+            index.search(case["query"], top_k=1, mode="dense")
     source_digest = hashlib.sha256()
     for path in sorted(
         [
@@ -184,6 +196,7 @@ def main():
             "repeats": args.repeats,
             "candidate_k": settings.retrieval_candidate_k,
             "rrf_k": settings.retrieval_rrf_k,
+            "query_cache_size": args.query_cache_size,
             "dataset_sha256": hashlib.sha256(args.cases.read_bytes()).hexdigest(),
             "source_and_corpus_sha256": source_digest.hexdigest(),
             "model": encoder.MODEL if encoder else None,
@@ -195,9 +208,9 @@ def main():
             "setup_ms": round(setup_ms, 3),
             "document_vector_cache_hit": index.dense.cache_hit if index.dense else None,
             "latency_scope": (
-                "warm sequential retrieval including query embedding, cosine scan and fusion; "
-                "excludes download, index construction, LLM and HTTP; document vectors cached; "
-                "no query-vector cache"
+                "Sequential retrieval including query cache lookup or encoding, cosine scan "
+                "and fusion. Excludes download, index construction, LLM and HTTP. "
+                "Evaluation queries are preloaded when query caching is enabled."
             ),
             "limitations": (
                 "Synthetic manually authored corpus/labels, no independent review; single-machine "

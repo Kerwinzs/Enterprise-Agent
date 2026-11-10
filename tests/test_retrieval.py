@@ -54,14 +54,40 @@ def small_corpus(tmp_path):
     return docs
 
 
-def test_semantic_path_recovers_no_keyword_overlap(small_corpus, tmp_path):
+@pytest.mark.parametrize(("cache_size", "expected_calls"), [(0, 2), (128, 1)])
+def test_semantic_path_recovers_no_keyword_overlap(
+    small_corpus, tmp_path, cache_size, expected_calls
+):
     encoder = FakeEncoder()
-    index = DocumentIndex(small_corpus, encoder=encoder, cache_dir=tmp_path / "vectors")
+    index = DocumentIndex(
+        small_corpus,
+        encoder=encoder,
+        cache_dir=tmp_path / "vectors",
+        query_cache_size=cache_size,
+    )
     assert index.search("住酒店") == []
     for mode in ("dense", "hybrid"):
         result = index.search("住酒店", top_k=1, mode=mode)
         assert result[0].id == "hotel:1"
-    assert encoder.query_calls == 2
+    assert encoder.query_calls == expected_calls
+
+
+def test_query_cache_evicts_least_recently_used_and_is_index_local(tmp_path):
+    encoder = FakeEncoder()
+    chunks = [source("hotel:1", "# 差旅与报销")]
+    index = DenseIndex(chunks, encoder, tmp_path, query_cache_size=2)
+    first = index.search("住宿", 1)
+    index.search("餐饮", 1)
+    assert index.search("住宿", 1) == first
+    index.search("交通", 1)
+    assert index.search("住宿", 1) == first
+    assert encoder.query_calls == 3
+    index.search("餐饮", 1)
+    assert encoder.query_calls == 4
+
+    rebuilt = DenseIndex(chunks, encoder, tmp_path, query_cache_size=2)
+    assert rebuilt.search("住宿", 1) == first
+    assert encoder.query_calls == 5
 
 
 def test_rrf_uses_ranks_deduplicates_and_ignores_raw_score_scale():

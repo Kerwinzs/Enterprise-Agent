@@ -7,7 +7,7 @@ from pathlib import Path
 
 from app.embeddings import Encoder
 from app.schemas import Source
-from app.vector_index import DenseIndex
+from app.vector_index import DEFAULT_QUERY_CACHE_SIZE, DenseIndex
 
 
 def tokenize(text: str) -> list[str]:
@@ -29,6 +29,7 @@ class DocumentIndex:
         cache_dir: Path | None = None,
         candidate_k: int = 10,
         rrf_k: int = 60,
+        query_cache_size: int = DEFAULT_QUERY_CACHE_SIZE,
     ):
         if mode not in {"bm25", "dense", "hybrid"}:
             raise ValueError("Unknown retrieval mode")
@@ -61,7 +62,9 @@ class DocumentIndex:
         if encoder is not None:
             if cache_dir is None:
                 raise ValueError("Vector cache directory is required")
-            self.dense = DenseIndex(self.chunks, encoder, cache_dir)
+            self.dense = DenseIndex(
+                self.chunks, encoder, cache_dir, query_cache_size=query_cache_size
+            )
         if mode != "bm25" and self.dense is None:
             raise ValueError("Dense and hybrid retrieval require an encoder")
 

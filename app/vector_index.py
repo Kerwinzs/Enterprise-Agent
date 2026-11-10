@@ -5,10 +5,13 @@ import json
 import math
 import os
 import tempfile
+from functools import lru_cache
 from pathlib import Path
 
 from app.embeddings import Encoder
 from app.schemas import Source
+
+DEFAULT_QUERY_CACHE_SIZE = 128
 
 
 def normalize(vector: list[float], dimension: int) -> list[float]:
@@ -21,8 +24,22 @@ def normalize(vector: list[float], dimension: int) -> list[float]:
 
 
 class DenseIndex:
-    def __init__(self, chunks: list[Source], encoder: Encoder, cache_dir: Path):
-        self.chunks, self.encoder = chunks, encoder
+    def __init__(
+        self,
+        chunks: list[Source],
+        encoder: Encoder,
+        cache_dir: Path,
+        *,
+        query_cache_size: int = DEFAULT_QUERY_CACHE_SIZE,
+    ):
+        self.chunks = chunks
+
+        # Cache only query vectors so ranking and evidence checks run for every search.
+        @lru_cache(maxsize=query_cache_size)
+        def query_vector(query: str) -> list[float]:
+            return normalize(encoder.embed_query(query), encoder.dimension)
+
+        self._query_vector = query_vector
         payload = {
             "schema_version": 1,
             "encoder": encoder.identity,
@@ -77,7 +94,7 @@ class DenseIndex:
     def search(self, query: str, top_k: int) -> list[Source]:
         if not self.chunks:
             return []
-        query_vector = normalize(self.encoder.embed_query(query), self.encoder.dimension)
+        query_vector = self._query_vector(query)
         ranked = []
         for chunk, vector in zip(self.chunks, self.vectors, strict=True):
             similarity = sum(left * right for left, right in zip(query_vector, vector, strict=True))
